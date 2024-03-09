@@ -71,7 +71,8 @@ if ($accion == "crear") {
             );
         } else {
             $respuesta = array(
-                'respuesta' => 'profesor_fallido'
+                'respuesta' => 'profesor_fallido',
+                'error' => $con->error
             );
         }
 
