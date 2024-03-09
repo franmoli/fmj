@@ -16,7 +16,7 @@ if ($accion == "crear") {
     //Intento hacer la operación en la base de datos
     try {
 
-        $sql = "INSERT INTO profesores (profesor_password, profesor_email, profesor_usuario, profesor_nombre, profesor_club) VALUES ('$hashed_password', '$email', '$usuario', '$nombre', '$club')";
+        $sql = "INSERT INTO profesores (profesor_password, profesor_email, profesor_usuario, profesor_nombre, profesor_club) VALUES ('$hashedPassword', '$email', '$usuario', '$nombre', '$club')";
         $con->query($sql);
 
         // echo $sql;
@@ -26,7 +26,6 @@ if ($accion == "crear") {
             $respuesta = array(
                 'respuesta' => 'profesor_creado',
                 'nombre' => $nombre,
-                'apellido' => $apellido
             );
         } else {
             $respuesta = array(
