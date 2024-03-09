@@ -111,6 +111,14 @@ function actualizarBD(tabla, datos) {
         setTimeout(() => {
           location.href = "administrar-profesores.php";
         }, 5000);
+      } else if (tipoOperacion.respuesta == "profesor_eliminado") {
+        notificacionExito(
+          "OPERACIÓN EXITOSA",
+          `¡El profesor fue eliminado con éxito!`
+        );
+        setTimeout(() => {
+          location.href = "administrar-competidores.php";
+        }, 5000);
       }
       //Operaciones erroneas
       else if (tipoOperacion.respuesta == "sesion_fallida") {
@@ -817,5 +825,23 @@ $(document).ready(function () {
       return false;
     });
   }
-  /************* Panel de Administración - Nuevo Competidor **************/
+  /************* Panel de Administración - Nuevo profesor **************/
+
+  /************* Panel de Administración - Eliminar profesor **************/
+  //Formulario
+  let botonEliminarProfesor = $("table #eliminar-profesor");
+  if (botonEliminarProfesor.length) {
+    $(botonEliminarProfesor).on("click", function () {
+      //Obtengo el ID a eliminar
+      const idCompetidor = $(this).attr("data-competidor");
+      //Envío la operación a la base de datos
+      const datos = new FormData();
+      datos.append("id", idCompetidor);
+      datos.append("accion", "eliminar");
+
+      actualizarBD("profesorn", datos);
+      return false;
+    });
+  }
+  /************* Panel de Administración - Eliminar profesor **************/
 });

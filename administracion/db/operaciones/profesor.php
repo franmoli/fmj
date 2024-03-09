@@ -101,16 +101,12 @@ if ($accion == "crear") {
     $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
     //Intento hacer la operación en la base de datos
     try {
-        $stmt = $con->prepare('DELETE FROM competidores WHERE dni = ?');
-        $stmt->bind_param('i', $id);
-        $stmt->execute();
-
-        $stmt = $con->prepare('DELETE FROM `puntos-competidor` WHERE usuario = ?');
+        $stmt = $con->prepare('DELETE FROM profesores WHERE profesor_id = ?');
         $stmt->bind_param('i', $id);
         $stmt->execute();
 
         $respuesta = array(
-            'respuesta' => 'competidor_eliminado'
+            'respuesta' => 'profesor_eliminado'
         );
 
         $stmt->close();
