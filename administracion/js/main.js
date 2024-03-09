@@ -833,10 +833,10 @@ $(document).ready(function () {
   if (botonEliminarProfesor.length) {
     $(botonEliminarProfesor).on("click", function () {
       //Obtengo el ID a eliminar
-      const idCompetidor = $(this).attr("data-competidor");
+      const idProfesor = $(this).attr("data-profesor");
       //Envío la operación a la base de datos
       const datos = new FormData();
-      datos.append("id", idCompetidor);
+      datos.append("id", idProfesor);
       datos.append("accion", "eliminar");
 
       actualizarBD("profesor", datos);
