@@ -45,14 +45,6 @@ if ($_SESSION['logueado'] == 0) echo '<meta http-equiv="refresh" content="0; url
                             No deben incluirse caracteres especiales o números
                         </small>
                     </div>
-                    <!-- Apellido -->
-                    <div class="apellido">
-                        <input id="apellido-profesor" class="text-white text-center with-error" type="text" placeholder="APELLIDO">
-                        <small>
-                            El campo debe contener entre 3 y 60 caracteres <br>
-                            No deben incluirse caracteres especiales o números
-                        </small>
-                    </div>
                     <!-- Usuario -->
                     <div class="usuario">
                         <input id="usuario-profesor" class="text-white text-center with-error" type="text" placeholder="USUARIO">

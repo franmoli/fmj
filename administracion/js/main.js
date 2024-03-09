@@ -305,7 +305,6 @@ function leerFormulario(formulario, accion) {
       /* Input Text */
       const club = $("#club");
       const nombreProfesor = $("#nombre-profesor");
-      const apellidoProfesor = $("#apellido-profesor");
       const emailProfesor = $("#email-profesor");
       const usuario = $("#usuario-profesor");
       const pass = $("#password-profesor");
@@ -313,8 +312,7 @@ function leerFormulario(formulario, accion) {
       /* Nombre */
       if (!validarCampoObligadorio(nombreProfesor)) return false;
       /* Apellido */
-      if (!validarCampo(apellidoProfesor, 3, 60, formulario_cNombre))
-        return false;
+
       /* Email */
       if (!validarCampo(emailProfesor, 0, 9999, formulario_cEmail))
         return false;
@@ -328,7 +326,6 @@ function leerFormulario(formulario, accion) {
         datos.append("id", id);
       }
       datos.append("nombre", nombreProfesor.val().toUpperCase());
-      datos.append("apellido", apellidoProfesor.val().toUpperCase());
       datos.append("email", emailProfesor.val().toUpperCase());
       datos.append("club", club.val());
       datos.append("usuario", usuario.val().toUpperCase());

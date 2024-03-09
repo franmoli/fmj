@@ -6,7 +6,6 @@ if ($accion == "crear") {
     //Paso los datos ingresados por el usuario por un filtro para evitar codigo malo
 
     $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
-    $apellido = mysqli_real_escape_string($con, $_POST['apellido']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $club = mysqli_real_escape_string($con, $_POST['club']);
     $usuario = mysqli_real_escape_string($con, $_POST['usuario']);
@@ -15,8 +14,7 @@ if ($accion == "crear") {
     //Intento hacer la operación en la base de datos
     try {
 
-        $nombre_apellido = $nombre . '_' . $apellido;
-        $sql = "INSERT INTO profesores (profesor_password, profesor_email, profesor_usuario, profesor_nombre, profesor_club) VALUES ('$hashed_password', '$email', '$usuario', '$nombre_apellido', '$club')";
+        $sql = "INSERT INTO profesores (profesor_password, profesor_email, profesor_usuario, profesor_nombre, profesor_club) VALUES ('$hashed_password', '$email', '$usuario', '$nombre', '$club')";
         $con->query($sql);
 
         // echo $sql;
