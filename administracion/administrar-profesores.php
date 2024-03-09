@@ -30,7 +30,7 @@ while ($profesor = $resultadoBD->fetch_assoc()) {
         <main id="contenido-principal" class="text-center">
             <!-- Descripción -->
             <section id="descripcion-administrar-elemento" class="text-center">
-                <h1>ADMINISTRAR TORNEOS</h1>
+                <h1>ADMINISTRAR PROFESORES</h1>
                 <p>
                     Se han encontrado un total de <?php echo count($profesores); ?> profesores creados
                 </p>
