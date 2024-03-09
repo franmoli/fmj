@@ -30,7 +30,7 @@ if ($accion == "crear") {
             );
         } else {
             $respuesta = array(
-                'respuesta' => 'profesor_fallido', 'error' => $e->getMessage()
+                'respuesta' => 'profesor_fallido', 'error' => $con->error
             );
         }
 
