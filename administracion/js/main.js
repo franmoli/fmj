@@ -103,6 +103,14 @@ function actualizarBD(tabla, datos) {
         setTimeout(() => {
           location.href = "administrar-competidores.php";
         }, 5000);
+      } else if (tipoOperacion.respuesta == "profesor_creado") {
+        notificacionExito(
+          "OPERACIÓN EXITOSA",
+          `¡El profesor ${tipoOperacion.nombre} fue actualizado con éxito!`
+        );
+        setTimeout(() => {
+          location.href = "administrar-competidores.php";
+        }, 5000);
       }
       //Operaciones erroneas
       else if (tipoOperacion.respuesta == "sesion_fallida") {
@@ -133,6 +141,8 @@ function actualizarBD(tabla, datos) {
           "HA OCURRIDO UN ERROR",
           `Los puntos del torneo seleccionado ya se le han asignado a este usuario; si cometió un error... por favor comuníquese con un administrador`
         );
+      } else if (tipoOperacion.respuesta == "profesor_fallido") {
+        notificacionError("HA OCURRIDO UN ERROR", ``);
       }
     },
     error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -272,6 +282,42 @@ function leerFormulario(formulario, accion) {
       datos.append("imagen", imagenTorneo.prop("files")[0]);
       datos.append("accion", accion);
       actualizarBD("torneo", datos);
+    }
+  } else if (formulario == "profesor") {
+    if (accion == "crear" || accion == "editar") {
+      //Obtengo los valores
+      /* Input Text */
+      const club = $("#club");
+      const nombreProfesor = $("#nombre-profesor");
+      const apellidoProfesor = $("#apellido-profesor");
+      const emailProfesor = $("#email-profesor");
+      const usuario = $("#usuario-profesor");
+      const pass = $("#password-profesor");
+      //Realizo las validaciones correspondientes para los campos (Aquellos que no requieran longitud se establecen en '0' y '9999')
+      /* Nombre */
+      if (!validarCampo(nombreProfesor, 3, 60, formulario_cNombre))
+        return false;
+      /* Apellido */
+      if (!validarCampo(apellidoProfesor, 3, 60, formulario_cNombre))
+        return false;
+      /* Email */
+      if (!validarCampo(emailProfesor, 0, 9999, formulario_cEmail))
+        return false;
+
+      //Envio los datos hacia la base de datos
+      const datos = new FormData();
+      if (accion == "editar") {
+        const id = $("#id-competidor").val();
+        datos.append("id", id);
+      }
+      datos.append("nombre", nombreProfesor.val().toUpperCase());
+      datos.append("apellido", apellidoProfesor.val().toUpperCase());
+      datos.append("email", emailProfesor.val().toUpperCase());
+      datos.append("club", club.val());
+      datos.append("usuario", usuario.val().toUpperCase());
+      datos.append("pass", pass.val());
+      datos.append("accion", accion);
+      actualizarBD("profesor", datos);
     }
   }
 }
@@ -759,4 +805,15 @@ $(document).ready(function () {
     });
   }
   /************* Panel de Administración - Agregar Fechas **************/
+
+  /************* Panel de Administración - Nuevo profesor **************/
+  //Formulario
+  let formularioCrearProfesor = $("#crear-profesor");
+  if (formularioCrearProfesor.length) {
+    $(formularioCrearProfesor).on("submit", function () {
+      leerFormulario("profesor", "crear");
+      return false;
+    });
+  }
+  /************* Panel de Administración - Nuevo Competidor **************/
 });

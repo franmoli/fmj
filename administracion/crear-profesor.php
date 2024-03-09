@@ -53,6 +53,21 @@ if ($_SESSION['logueado'] == 0) echo '<meta http-equiv="refresh" content="0; url
                             No deben incluirse caracteres especiales o números
                         </small>
                     </div>
+                    <!-- Usuario -->
+                    <div class="usuario">
+                        <input id="usuario-profesor" class="text-white text-center with-error" type="text" placeholder="USUARIO">
+                        <small>
+                            El campo debe contener entre 3 y 60 caracteres <br>
+                            No deben incluirse caracteres especiales o números
+                        </small>
+                    </div>
+                    <!-- password -->
+                    <div class="password">
+                        <input id="password-profesor" class="text-white text-center with-error" type="text" placeholder="CONTRASEÑA">
+                        <small>
+                            El campo debe contener entre 3 y 60 caracteres <br>
+                        </small>
+                    </div>
                     <!-- Email -->
                     <div class="email">
                         <input id="email-profesor" class="text-white text-center with-error" type="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO">

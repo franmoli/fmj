@@ -7,29 +7,16 @@ if ($accion == "crear") {
 
     $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
     $apellido = mysqli_real_escape_string($con, $_POST['apellido']);
-    $dni = filter_var($_POST['dni'], FILTER_SANITIZE_NUMBER_INT);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-    $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
-    $genero = filter_var($_POST['genero'], FILTER_SANITIZE_STRING);
-    $nacimiento = filter_var($_POST['nacimiento'], FILTER_SANITIZE_STRING);
-    $federacion = filter_var($_POST['federacion'], FILTER_SANITIZE_STRING);
-    $club = filter_var($_POST['club'], FILTER_SANITIZE_STRING);
-    $peso = filter_var($_POST['peso'], FILTER_SANITIZE_NUMBER_INT);
-    $categoria = filter_var($_POST['categoria'], FILTER_SANITIZE_STRING);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $club = mysqli_real_escape_string($con, $_POST['club']);
+    $usuario = mysqli_real_escape_string($con, $_POST['usuario']);
+    $pass = mysqli_real_escape_string($con, $_POST['pass']);
+    $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
     //Intento hacer la operación en la base de datos
     try {
-        if ($_FILES['foto']['type'] == 'image/png' || $_FILES['foto']['type'] == 'image/jpg' || $_FILES['foto']['type'] == 'image/jpeg') {
-            //Obtengo el tipo de archivo
-            $separadorTipo = strpos($_FILES['foto']['type'], '/');
-            $extensionArchivo = substr($_FILES['foto']['type'], $separadorTipo + 1);
-            //Configuro el directorio y la muevo
-            $directorio = '../../../img/Competidores/';
-            if (move_uploaded_file($_FILES['foto']['tmp_name'], $directorio . $nombre . $apellido . '.' . $extensionArchivo)) {
-                $urlImagen = "img/Competidores/" . $nombre . $apellido . '.' . $extensionArchivo;
-            }
-        }
+
         $nombre_apellido = $nombre . '_' . $apellido;
-        $sql = "INSERT INTO competidores (nombre, apellido, nombre_apellido, genero, nacimiento, email, dni, telefono, foto, federacion, club, peso, categoria) VALUES ('$nombre', '$apellido', '$nombre_apellido', '$genero', '$nacimiento', '$email', '$dni', '$telefono', '$urlImagen', '$federacion', '$club', '$peso', '$categoria')";
+        $sql = "INSERT INTO profesores (profesor_password, profesor_email, profesor_usuario, profesor_nombre) VALUES ('$hashed_password', '$email', '$usuario', '$nombre_apellido')";
         $con->query($sql);
 
         // echo $sql;
@@ -37,13 +24,13 @@ if ($accion == "crear") {
 
         if ($con->affected_rows > 0) {
             $respuesta = array(
-                'respuesta' => 'competidor_creado',
+                'respuesta' => 'profesor_creado',
                 'nombre' => $nombre,
                 'apellido' => $apellido
             );
         } else {
             $respuesta = array(
-                'respuesta' => 'competidor_fallido'
+                'respuesta' => 'profesor_fallido'
             );
         }
 
