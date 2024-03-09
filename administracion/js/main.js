@@ -278,10 +278,10 @@ function leerFormulario(formulario, accion) {
 //Validación de formularios
 function validarCampo(campo, lMinima, lMaxima, formato) {
   if (
+    camposNoObligatorios(campo) ||
     (validarCampoObligadorio(campo) &&
       validarLongitudCampo(campo, lMinima, lMaxima) &&
-      validarFormatoCampo(campo, formato)) ||
-    camposNoObligatorios(campo)
+      validarFormatoCampo(campo, formato))
   ) {
     return true;
   }
