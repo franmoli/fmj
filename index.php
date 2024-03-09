@@ -10,7 +10,7 @@
     <!-- SECCION FEDERACIONES-->
     <section class="federaciones">
         <!-- TITULO SECCION -->
-        <h2 class="titulo-body">Federaciones!</h2>
+        <h2 class="titulo-body">Federaciones</h2>
         <div class="container">
             <div class="row text-center">
                 <!-- FEDERACIONES -->

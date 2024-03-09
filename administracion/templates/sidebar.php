@@ -14,12 +14,21 @@
             </div>
 
             <br>
-            
+
             <div class="categoria text-center">
                 <h2 class="light-overlay"><i class="fas fa-trophy"></i>Torneos</h2>
                 <a href="crear-torneo.php"><i class="fas fa-plus-circle"></i>Nuevo</a>
                 <br>
                 <a href="administrar-torneos.php"><i class="fas fa-edit"></i>Administrar</a>
+            </div>
+
+            <br>
+
+            <div class="categoria text-center">
+                <h2 class="light-overlay"><i class="fas fa-graduation-cap"></i>Profesores</h2>
+                <a href="crear-profesor.php"><i class="fas fa-plus-circle"></i>Nuevo</a>
+                <br>
+                <a href="administrar-profesores.php"><i class="fas fa-edit"></i>Administrar</a>
             </div>
 
             <br>
