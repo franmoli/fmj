@@ -59,7 +59,7 @@ if ($accion == "crear") {
 
     try {
 
-        $query = $con->query("UPDATE profesores SET $pass profesor_email = $email, profesor_usuario = $usuario, profesor_nombre = $nombre, profesor_club = $club WHERE profesor_id = ?");
+        $query = $con->query("UPDATE profesores SET $pass profesor_email = '$email', profesor_usuario = '$usuario', profesor_nombre = '$nombre', profesor_club = '$club' WHERE profesor_id = '$id'");
         // $stmt->bind_param('sssssi', $nombre, $email, $club, $usuario, $pass, $telefono, $federacion, $club, $peso, $categoria, $id);
 
         // $stmt->execute();
