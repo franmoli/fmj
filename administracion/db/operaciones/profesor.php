@@ -16,7 +16,7 @@ if ($accion == "crear") {
     try {
 
         $nombre_apellido = $nombre . '_' . $apellido;
-        $sql = "INSERT INTO profesores (profesor_password, profesor_email, profesor_usuario, profesor_nombre) VALUES ('$hashed_password', '$email', '$usuario', '$nombre_apellido')";
+        $sql = "INSERT INTO profesores (profesor_password, profesor_email, profesor_usuario, profesor_nombre, profesor_club) VALUES ('$hashed_password', '$email', '$usuario', '$nombre_apellido', '$club')";
         $con->query($sql);
 
         // echo $sql;
