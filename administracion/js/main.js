@@ -317,7 +317,7 @@ function leerFormulario(formulario, accion) {
       if (!validarCampo(emailProfesor, 0, 9999, formulario_cEmail))
         return false;
       if (!validarCampoObligadorio(usuario)) return false;
-      if (!validarCampoObligadorio(pass) || accion == "editar") return false;
+      if (!validarCampoObligadorio(pass) && accion != "editar") return false;
 
       //Envio los datos hacia la base de datos
       const datos = new FormData();
