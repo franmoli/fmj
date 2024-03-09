@@ -303,6 +303,8 @@ function leerFormulario(formulario, accion) {
       /* Email */
       if (!validarCampo(emailProfesor, 0, 9999, formulario_cEmail))
         return false;
+      if (!validarCampoObligadorio(usuario)) return false;
+      if (!validarCampoObligadorio(pass)) return false;
 
       //Envio los datos hacia la base de datos
       const datos = new FormData();
