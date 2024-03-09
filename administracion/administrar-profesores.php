@@ -32,7 +32,7 @@ while ($profesor = $resultadoBD->fetch_assoc()) {
             <section id="descripcion-administrar-elemento" class="text-center">
                 <h1>ADMINISTRAR TORNEOS</h1>
                 <p>
-                    Se han encontrado un total de <?php echo count($profesores); ?> torneos creados
+                    Se han encontrado un total de <?php echo count($profesores); ?> profesores creados
                 </p>
             </section>
 
