@@ -7,9 +7,9 @@ if ($_SESSION['logueado'] == 0) echo '<meta http-equiv="refresh" content="0; url
 //Cargo los datos necesarios de la base de datos
 require('db/conexion.php');
 
-$cargarProfesores = " SELECT * FROM profesores ORDER BY nombre ";
+$cargarProfesores = " SELECT * FROM profesores ORDER BY profesor_nombre ";
 $resultadoBD = $con->query($cargarProfesores);
-echo $con->error;
+// echo $con->error;
 $profesores = array();
 while ($profesor = $resultadoBD->fetch_assoc()) {
     array_push($profesores, $profesor);
