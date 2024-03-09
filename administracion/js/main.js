@@ -278,10 +278,9 @@ function leerFormulario(formulario, accion) {
 //Validación de formularios
 function validarCampo(campo, lMinima, lMaxima, formato) {
   if (
-    camposNoObligatorios(campo) ||
-    (validarCampoObligadorio(campo) &&
-      validarLongitudCampo(campo, lMinima, lMaxima) &&
-      validarFormatoCampo(campo, formato))
+    validarCampoObligadorio(campo) &&
+    validarLongitudCampo(campo, lMinima, lMaxima) &&
+    validarFormatoCampo(campo, formato)
   ) {
     return true;
   }
@@ -292,7 +291,7 @@ function validarCampo(campo, lMinima, lMaxima, formato) {
   return false;
 }
 function validarCampoObligadorio(campo) {
-  if (campo.val().length > 0) {
+  if (campo.val().length > 0 || camposNoObligatorios(campo)) {
     $(campo).css("border", "solid .2rem #009975");
     return true;
   }
@@ -307,7 +306,10 @@ function camposNoObligatorios(campo) {
   return camposNoObligatorios.includes(campo[0].id);
 }
 function validarLongitudCampo(campo, lMinima, lMaxima) {
-  if (campo.val().length >= lMinima && campo.val().length <= lMaxima) {
+  if (
+    (campo.val().length >= lMinima && campo.val().length <= lMaxima) ||
+    camposNoObligatorios(campo)
+  ) {
     $(campo).css("border", "solid .2rem #009975");
     return true;
   }
@@ -315,7 +317,11 @@ function validarLongitudCampo(campo, lMinima, lMaxima) {
   return false;
 }
 function validarFormatoCampo(campo, formato) {
-  if (formato == "libre" || formato.test(campo.val())) {
+  if (
+    formato == "libre" ||
+    formato.test(campo.val()) ||
+    camposNoObligatorios(campo)
+  ) {
     $(campo).css("border", "solid .2rem #009975");
     return true;
   }
