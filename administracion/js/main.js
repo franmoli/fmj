@@ -291,19 +291,26 @@ function validarCampo(campo, lMinima, lMaxima, formato) {
   return false;
 }
 function validarCampoObligadorio(campo) {
-  if (campo.val().length > 0) {
+  if (campo.val().length > 0 && !camposNoObligatorios(campo)) {
     $(campo).css("border", "solid .2rem #009975");
     return true;
   }
-  $(campo).css("border", "solid .2rem var(--colorRojo)");
+  $(campo).css("border", "solid .5rem var(--colorRojo)");
   return false;
+}
+function camposNoObligatorios(campo) {
+  // Lista predefinida de IDs de clubes permitidos
+  var camposNoObligatorios = ["telefono-competidor", "club2", "club3"];
+
+  // Verificar si el valor seleccionado está incluido en la lista de clubes permitidos
+  return campo[0].id.includes(camposNoObligatorios);
 }
 function validarLongitudCampo(campo, lMinima, lMaxima) {
   if (campo.val().length >= lMinima && campo.val().length <= lMaxima) {
     $(campo).css("border", "solid .2rem #009975");
     return true;
   }
-  $(campo).css("border", "solid .2rem var(--colorRojo)");
+  $(campo).css("border", "solid .5rem var(--colorRojo)");
   return false;
 }
 function validarFormatoCampo(campo, formato) {
@@ -311,7 +318,7 @@ function validarFormatoCampo(campo, formato) {
     $(campo).css("border", "solid .2rem #009975");
     return true;
   }
-  $(campo).css("border", "solid .2rem var(--colorRojo)");
+  $(campo).css("border", "solid .5rem var(--colorRojo)");
   return false;
 }
 function validarRadioButton(radioButton) {
