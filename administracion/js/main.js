@@ -291,7 +291,7 @@ function validarCampo(campo, lMinima, lMaxima, formato) {
   return false;
 }
 function validarCampoObligadorio(campo) {
-  if (campo.val().length > 0 && !camposNoObligatorios(campo)) {
+  if (campo.val().length > 0 || camposNoObligatorios(campo)) {
     $(campo).css("border", "solid .2rem #009975");
     return true;
   }
