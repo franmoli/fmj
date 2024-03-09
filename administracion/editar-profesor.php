@@ -50,15 +50,7 @@ if (!$profesorObtenido) echo '<meta http-equiv="refresh" content="0; url=adminis
                     </div>
                     <!-- Nombre -->
                     <div class="nombre">
-                        <input id="nombre-profesor" class="text-white text-center with-error" type="text" placeholder="NOMBRE">
-                        <small>
-                            El campo debe contener entre 3 y 60 caracteres <br>
-                            No deben incluirse caracteres especiales o números
-                        </small>
-                    </div>
-                    <!-- Apellido -->
-                    <div class="apellido">
-                        <input id="apellido-profesor" class="text-white text-center with-error" type="text" placeholder="APELLIDO">
+                        <input id="nombre-profesor" class="text-white text-center with-error" type="text" placeholder="NOMBRE" value="<?php echo $profesorObtenido['profesor_nombre'] ?>">
                         <small>
                             El campo debe contener entre 3 y 60 caracteres <br>
                             No deben incluirse caracteres especiales o números
@@ -66,7 +58,7 @@ if (!$profesorObtenido) echo '<meta http-equiv="refresh" content="0; url=adminis
                     </div>
                     <!-- Usuario -->
                     <div class="usuario">
-                        <input id="usuario-profesor" class="text-white text-center with-error" type="text" placeholder="USUARIO">
+                        <input id="usuario-profesor" class="text-white text-center with-error" type="text" placeholder="USUARIO" value="<?php echo $profesorObtenido['profesor_usuario'] ?>">
                         <small>
                             El campo debe contener entre 3 y 60 caracteres <br>
                             No deben incluirse caracteres especiales o números
@@ -81,7 +73,7 @@ if (!$profesorObtenido) echo '<meta http-equiv="refresh" content="0; url=adminis
                     </div>
                     <!-- Email -->
                     <div class="email">
-                        <input id="email-profesor" class="text-white text-center with-error" type="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO">
+                        <input id="email-profesor" class="text-white text-center with-error" type="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO" value="<?php echo $profesorObtenido['profesor_email'] ?>">
                         <small>
                             Debe cumplirse el siguiente formato: "direccion@empresa.extensiones"
                         </small>
@@ -89,7 +81,7 @@ if (!$profesorObtenido) echo '<meta http-equiv="refresh" content="0; url=adminis
 
                     <hr>
                     <!-- Enviar formulario -->
-                    <input class="text text-center" type="submit" value="CREAR">
+                    <input class="text text-center" type="submit" value="EDITAR">
                 </form>
             </section>
         </main>
