@@ -9,7 +9,7 @@ require('db/conexion.php');
 
 $cargarProfesores = " SELECT * FROM profesores ORDER BY nombre ";
 $resultadoBD = $con->query($cargarProfesores);
-
+echo $con->error;
 $profesores = array();
 while ($profesor = $resultadoBD->fetch_assoc()) {
     array_push($profesores, $profesor);
