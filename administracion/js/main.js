@@ -303,7 +303,7 @@ function camposNoObligatorios(campo) {
   var camposNoObligatorios = ["telefono-competidor", "club2", "club3"];
 
   // Verificar si el valor seleccionado está incluido en la lista de clubes permitidos
-  return campo[0].id.includes(camposNoObligatorios);
+  return camposNoObligatorios.includes(campo[0].id);
 }
 function validarLongitudCampo(campo, lMinima, lMaxima) {
   if (campo.val().length >= lMinima && campo.val().length <= lMaxima) {
