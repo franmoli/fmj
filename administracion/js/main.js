@@ -109,7 +109,7 @@ function actualizarBD(tabla, datos) {
           `¡El profesor ${tipoOperacion.nombre} fue actualizado con éxito!`
         );
         setTimeout(() => {
-          location.href = "administrar-competidores.php";
+          location.href = "administrar-profesores.php";
         }, 5000);
       }
       //Operaciones erroneas
