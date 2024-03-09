@@ -43,48 +43,35 @@ if ($accion == "crear") {
     }
 } else if ($accion == "editar") {
     //Paso los datos ingresados por el usuario por un filtro para evitar codigo malo
-    $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
-    $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-    $apellido = filter_var($_POST['apellido'], FILTER_SANITIZE_STRING);
-    $dni = filter_var($_POST['dni'], FILTER_SANITIZE_NUMBER_INT);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-    $telefono = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
-    $genero = filter_var($_POST['genero'], FILTER_SANITIZE_STRING);
-    $nacimiento = filter_var($_POST['nacimiento'], FILTER_SANITIZE_STRING);
-    $federacion = filter_var($_POST['federacion'], FILTER_SANITIZE_STRING);
-    $club = filter_var($_POST['club'], FILTER_SANITIZE_STRING);
-    $peso = filter_var($_POST['peso'], FILTER_SANITIZE_NUMBER_INT);
-    $categoria = filter_var($_POST['categoria'], FILTER_SANITIZE_STRING);
+
+    $id = mysqli_real_escape_string($con, $_POST['id']);
+    $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $club = mysqli_real_escape_string($con, $_POST['club']);
+    $usuario = mysqli_real_escape_string($con, $_POST['usuario']);
+    $pass = mysqli_real_escape_string($con, $_POST['pass']);
+    if ($pass != '') {
+
+        $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
+        $pass = "profesor_password = '$hashedPassword',";
+    }
     //Intento hacer la operación en la base de datos
 
     try {
-        if (isset($_FILES['foto'])) {
-            if ($_FILES['foto']['type'] == 'image/png' || $_FILES['foto']['type'] == 'image/jpg' || $_FILES['foto']['type'] == 'image/jpeg') {
-                //Obtengo el tipo de archivo
-                $separadorTipo = strpos($_FILES['foto']['type'], '/');
-                $extensionArchivo = substr($_FILES['foto']['type'], $separadorTipo + 1);
-                //Configuro el directorio y la muevo
-                $directorio = '../../../img/Competidores/';
-                if (move_uploaded_file($_FILES['foto']['tmp_name'], $directorio . $nombre . $apellido . '.' . $extensionArchivo)) {
-                    $urlImagen = "img/Competidores/" . $nombre . $apellido . '.' . $extensionArchivo;
-                    $stmt = $con->prepare('UPDATE competidores SET nombre = ?, apellido = ?, genero = ?, nacimiento = ?, email = ?, dni = ?, telefono = ?, foto = ?, federacion = ?, club = ?, peso = ?, categoria = ? WHERE dni = ?');
-                    $stmt->bind_param('sssssissssisi', $nombre, $apellido, $genero, $nacimiento, $email, $dni, $telefono, $urlImagen, $federacion, $club, $peso, $categoria, $id);
-                }
-            }
-        } else {
-            $stmt = $con->prepare('UPDATE competidores SET nombre = ?, apellido = ?, genero = ?, nacimiento = ?, email = ?, dni = ?, telefono = ?, federacion = ?, club = ?, peso = ?, categoria = ? WHERE dni = ?');
-            $stmt->bind_param('sssssisssisi', $nombre, $apellido, $genero, $nacimiento, $email, $dni, $telefono, $federacion, $club, $peso, $categoria, $id);
-        }
-        $stmt->execute();
 
-        if ($stmt->affected_rows > 0) {
+        $query = $con->query("UPDATE profesores SET $pass profesor_email = $email, profesor_usuario = $usuario, profesor_nombre = $nombre, profesor_club = $club WHERE profesor_id = ?");
+        // $stmt->bind_param('sssssi', $nombre, $email, $club, $usuario, $pass, $telefono, $federacion, $club, $peso, $categoria, $id);
+
+        // $stmt->execute();
+
+        if ($query === TRUE) {
             $respuesta = array(
-                'respuesta' => 'competidor_actualizado',
+                'respuesta' => 'profesor_actualizado',
                 'nombre' => $nombre
             );
         } else {
             $respuesta = array(
-                'respuesta' => 'competidor_fallido',
+                'respuesta' => 'profesor_fallido',
                 'archivo' => $_FILES['foto']
             );
         }

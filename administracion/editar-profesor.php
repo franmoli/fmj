@@ -37,6 +37,7 @@ if (!$profesorObtenido) echo '<meta http-equiv="refresh" content="0; url=adminis
             <section id="formulario-creacion">
                 <form id="editar-profesor" class="container text-center" action="#">
                     <h3 class="text-left">INFORMACIÓN PERSONAL</h3>
+                    <input type="hidden" name="id-profesor" id="id-profesor" value="<?php echo $profesorObtenido['profesor_id'] ?>">
                     <!-- club -->
                     <div class="club">
                         <div class="row etiqueta">

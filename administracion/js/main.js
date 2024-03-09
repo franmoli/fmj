@@ -119,6 +119,14 @@ function actualizarBD(tabla, datos) {
         setTimeout(() => {
           location.href = "administrar-profesores.php";
         }, 5000);
+      } else if (tipoOperacion.respuesta == "profesor_actualizado") {
+        notificacionExito(
+          "OPERACIÓN EXITOSA",
+          `¡El profesor fue actualizado con éxito!`
+        );
+        setTimeout(() => {
+          location.href = "administrar-profesores.php";
+        }, 5000);
       }
       //Operaciones erroneas
       else if (tipoOperacion.respuesta == "sesion_fallida") {
@@ -317,7 +325,7 @@ function leerFormulario(formulario, accion) {
       //Envio los datos hacia la base de datos
       const datos = new FormData();
       if (accion == "editar") {
-        const id = $("#id-competidor").val();
+        const id = $("#id-profesor").val();
         datos.append("id", id);
       }
       datos.append("nombre", nombreProfesor.val().toUpperCase());
@@ -822,6 +830,16 @@ $(document).ready(function () {
   if (formularioCrearProfesor.length) {
     $(formularioCrearProfesor).on("submit", function () {
       leerFormulario("profesor", "crear");
+      return false;
+    });
+  }
+  /************* Panel de Administración - Nuevo profesor **************/
+  /************* Panel de Administración - Nuevo profesor **************/
+  //Formulario
+  let formularioEditarProfesor = $("#editar-profesor");
+  if (formularioEditarProfesor.length) {
+    $(formularioEditarProfesor).on("submit", function () {
+      leerFormulario("profesor", "editar");
       return false;
     });
   }
