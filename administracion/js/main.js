@@ -311,8 +311,7 @@ function leerFormulario(formulario, accion) {
       const pass = $("#password-profesor");
       //Realizo las validaciones correspondientes para los campos (Aquellos que no requieran longitud se establecen en '0' y '9999')
       /* Nombre */
-      if (!validarCampo(nombreProfesor, 3, 60, formulario_cNombre))
-        return false;
+      if (!validarCampoObligadorio(nombreProfesor)) return false;
       /* Apellido */
       if (!validarCampo(apellidoProfesor, 3, 60, formulario_cNombre))
         return false;
