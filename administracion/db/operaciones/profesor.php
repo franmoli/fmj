@@ -71,12 +71,10 @@ if ($accion == "crear") {
             );
         } else {
             $respuesta = array(
-                'respuesta' => 'profesor_fallido',
-                'archivo' => $_FILES['foto']
+                'respuesta' => 'profesor_fallido'
             );
         }
 
-        $stmt->close();
         $con->close();
     } catch (Exception $e) {
         $respuesta = array(
