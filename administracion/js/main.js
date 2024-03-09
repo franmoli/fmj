@@ -837,6 +837,7 @@ $(document).ready(function () {
   //Formulario
   let formularioEditarProfesor = $("#editar-profesor");
   if (formularioEditarProfesor.length) {
+    console.log("aaa");
     $(formularioEditarProfesor).on("submit", function () {
       leerFormulario("profesor", "editar");
       return false;
