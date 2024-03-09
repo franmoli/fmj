@@ -31,7 +31,7 @@ if ($_SESSION['logueado'] == 0) echo '<meta http-equiv="refresh" content="0; url
                         <div class="row etiqueta">
                             <label for="club" class="col-md-12">CLUB</label>
                         </div>
-                        <select id="club" name="club">
+                        <select id="club" class="text-white" name="club">
                             <option value="club1">Club 1</option>
                             <option value="club2">Club 2</option>
                             <option value="club3">Club 3</option>
