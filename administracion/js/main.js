@@ -839,7 +839,7 @@ $(document).ready(function () {
       datos.append("id", idCompetidor);
       datos.append("accion", "eliminar");
 
-      actualizarBD("profesorn", datos);
+      actualizarBD("profesor", datos);
       return false;
     });
   }
