@@ -53,8 +53,8 @@ while ($profesor = $resultadoBD->fetch_assoc()) {
                                 <td width="33%"><?php echo $profesor['profesor_nombre']; ?></td>
                                 <td width="33%"><?php echo $profesor['profesor_club']; ?></td>
                                 <td width="33%">
-                                    <a href="editar-profesor.php?id=<?php echo $profesor['id']; ?>" class="col-md-4 text-warning" title="Editar"><i class="fas fa-pen-square"></i></a>
-                                    <a id="eliminar-profesor" data-torneo="<?php echo $profesor['id']; ?>" href="#eliminar-profesor" class="col-md-4 text-danger" title="Eliminar"><i class="fas fa-minus-square"></i></a>
+                                    <a href="editar-profesor.php?id=<?php echo $profesor['profesor_id']; ?>" class="col-md-4 text-warning" title="Editar"><i class="fas fa-pen-square"></i></a>
+                                    <a id="eliminar-profesor" data-torneo="<?php echo $profesor['profesor_id']; ?>" href="#eliminar-profesor" class="col-md-4 text-danger" title="Eliminar"><i class="fas fa-minus-square"></i></a>
                                 </td>
                             </tr>
                         <?php
