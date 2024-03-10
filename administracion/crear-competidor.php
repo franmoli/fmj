@@ -82,6 +82,7 @@ require('templates/access_control.php'); ?>
                             </div>
                         </fieldset>
                     </div>
+                    <br><br>
                     <!-- Nombre -->
                     <div class="nombre">
                         <label for="nombre-competidor" style="color:black; font-size:1.6rem">Nombre del competidor</label>
@@ -93,7 +94,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Apellido -->
                     <div class="apellido">
-                        <label for="apellido-competidor">Apellido del competidor</label>
+                        <label for="apellido-competidor" style="color:black; font-size:1.6rem">Apellido del competidor</label>
                         <input id="apellido-competidor" class="text-white text-center with-error" type="text" placeholder="APELLIDO">
                         <small>
                             El campo debe contener entre 3 y 60 caracteres <br>
@@ -102,7 +103,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- DNI -->
                     <div class="dni">
-                        <label for="dni-competidor">Dni del competidor</label>
+                        <label for="dni-competidor" style="color:black; font-size:1.6rem">Dni del competidor</label>
                         <input id="dni-competidor" class="text-white text-center with-error" type="number" placeholder="NÚMERO DE DNI">
                         <small>
                             No deben incluirse puntos ni caracteres especiales, solo números <br>
@@ -110,7 +111,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Email -->
                     <div class="email">
-                        <label for="email-competidor">Email del competidor</label>
+                        <label for="email-competidor" style="color:black; font-size:1.6rem">Email del competidor</label>
                         <input id="email-competidor" class="text-white text-center with-error" type="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO">
                         <small>
                             Debe cumplirse el siguiente formato: "direccion@empresa.extensiones"
@@ -118,7 +119,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Telefono -->
                     <div class="telefono">
-                        <label for="telefono-competidor">Telefono del competidor</label>
+                        <label for="telefono-competidor" style="color:black; font-size:1.6rem">Telefono del competidor</label>
                         <input id="telefono-competidor" class="text-white text-center with-error" type="tel" placeholder="NÚMERO DE TELEFONO">
                         <small>
                             Debe cumplirse el siguiente formato: "(AAAA) NNNNNNNN" <br>
@@ -154,7 +155,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Nacimiento -->
                     <div class="nacimiento">
-                        <label for="nacimiento-competidor">Fecha de nacimiento del competidor</label>
+                        <label for="nacimiento-competidor" style="color:black; font-size:1.6rem">Fecha de nacimiento del competidor</label>
                         <input id="nacimiento-competidor" class="text-white text-center with-error" type="text" placeholder="FECHA DE NACIMIENTO">
                         <small>
                             Debe cumplirse el siguiente formato: "DIA/MES/AÑO" <br>
@@ -163,7 +164,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Foto -->
                     <div class="foto">
-                        <div class="foto-competidor"><input id="foto-competidor" class="text text-center" type="file" placeholder="FOTO"></div>
+                        <div class="foto-competidor" style="color:black; font-size:1.6rem"><input id="foto-competidor" class="text text-center" type="file" placeholder="FOTO"></div>
                         <label for="foto-competidor" class="file text-center col-md-12">
                             <div>SUBIR FOTO</div>
                         </label>
@@ -172,7 +173,7 @@ require('templates/access_control.php'); ?>
                     <h3 class="text-left">INFORMACIÓN DEPORTIVA</h3>
                     <!-- Federación -->
                     <div class="federacion">
-                        <label for="federacion-competidor">Federacion del competidor</label>
+                        <label for="federacion-competidor" style="color:black; font-size:1.6rem">Federacion del competidor</label>
                         <input id="federacion-competidor" class="text-white text-center with-error" type="text" placeholder="FEDERACIÓN">
                         <small>
                             El campo debe contener entre 3 y 30 caracteres <br>
@@ -181,6 +182,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Club -->
                     <div class="club">
+                        <label for="club-competidor" style="color:black; font-size:1.6rem">Club del competidor</label>
                         <?php if ($_SESSION['admin_level'] > 1) : ?>
                             <input id="club-competidor" class="text-white text-center with-error" type="text" value="<?php echo $_SESSION['club'] ?>" readonly>
                         <?php else : ?>
@@ -193,7 +195,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Peso Actual -->
                     <div class="peso">
-                        <label for="peso-competidor">Peso del competidor</label>
+                        <label for="peso-competidor" style="color:black; font-size:1.6rem">Peso del competidor</label>
                         <input id="peso-competidor" class="text-white text-center with-error" type="number" placeholder="PESO (KG)">
                         <small>
                             No deben incluirse puntos ni caracteres especiales, solo números <br>
