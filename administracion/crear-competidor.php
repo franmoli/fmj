@@ -84,6 +84,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Nombre -->
                     <div class="nombre">
+                        <label for="nombre-competidor">Nombre del competidor</label>
                         <input id="nombre-competidor" class="text-white text-center with-error" type="text" placeholder="NOMBRE">
                         <small>
                             El campo debe contener entre 3 y 60 caracteres <br>
@@ -92,6 +93,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Apellido -->
                     <div class="apellido">
+                        <label for="apellido-competidor">Apellido del competidor</label>
                         <input id="apellido-competidor" class="text-white text-center with-error" type="text" placeholder="APELLIDO">
                         <small>
                             El campo debe contener entre 3 y 60 caracteres <br>
@@ -100,6 +102,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- DNI -->
                     <div class="dni">
+                        <label for="dni-competidor">Dni del competidor</label>
                         <input id="dni-competidor" class="text-white text-center with-error" type="number" placeholder="NÚMERO DE DNI">
                         <small>
                             No deben incluirse puntos ni caracteres especiales, solo números <br>
@@ -107,6 +110,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Email -->
                     <div class="email">
+                        <label for="email-competidor">Email del competidor</label>
                         <input id="email-competidor" class="text-white text-center with-error" type="email" placeholder="DIRECCIÓN DE CORREO ELECTRÓNICO">
                         <small>
                             Debe cumplirse el siguiente formato: "direccion@empresa.extensiones"
@@ -114,6 +118,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Telefono -->
                     <div class="telefono">
+                        <label for="telefono-competidor">Telefono del competidor</label>
                         <input id="telefono-competidor" class="text-white text-center with-error" type="tel" placeholder="NÚMERO DE TELEFONO">
                         <small>
                             Debe cumplirse el siguiente formato: "(AAAA) NNNNNNNN" <br>
@@ -149,6 +154,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Nacimiento -->
                     <div class="nacimiento">
+                        <label for="nacimiento-competidor">Fecha de nacimiento del competidor</label>
                         <input id="nacimiento-competidor" class="text-white text-center with-error" type="text" placeholder="FECHA DE NACIMIENTO">
                         <small>
                             Debe cumplirse el siguiente formato: "DIA/MES/AÑO" <br>
@@ -166,6 +172,7 @@ require('templates/access_control.php'); ?>
                     <h3 class="text-left">INFORMACIÓN DEPORTIVA</h3>
                     <!-- Federación -->
                     <div class="federacion">
+                        <label for="federacion-competidor">Federacion del competidor</label>
                         <input id="federacion-competidor" class="text-white text-center with-error" type="text" placeholder="FEDERACIÓN">
                         <small>
                             El campo debe contener entre 3 y 30 caracteres <br>
@@ -186,6 +193,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Peso Actual -->
                     <div class="peso">
+                        <label for="peso-competidor">Peso del competidor</label>
                         <input id="peso-competidor" class="text-white text-center with-error" type="number" placeholder="PESO (KG)">
                         <small>
                             No deben incluirse puntos ni caracteres especiales, solo números <br>
