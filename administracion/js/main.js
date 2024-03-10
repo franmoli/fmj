@@ -135,7 +135,7 @@ function actualizarBD(tabla, datos) {
           `El nombre de usuario o la contraseña son incorrectos.`
         );
         setTimeout(() => {
-          location.reload();
+          // location.reload();
         }, 5000);
       } else if (tipoOperacion.respuesta == "competidor_fallido") {
         notificacionError(
