@@ -227,7 +227,7 @@ function leerFormulario(formulario, accion) {
       if (!validarCampo(federacionCompetidor, 3, 30, formulario_cNombre))
         return false;
       /* Club */
-      if (!validarCampoObligadorio(usuario)) return false;
+      if (!validarCampoObligadorio(clubCompetidor)) return false;
       /* Peso */
       if (!validarCampo(pesoCompetidor, 0, 9999, formulario_cNumero))
         return false;
