@@ -22,7 +22,7 @@ if ($accion == "loguear") {
                 'usuario' => $usuario
             );
         } else {
-            $cargarUsuario = " SELECT * FROM profesores WHERE profesor_usuario = '$usuario' AND  password = PASSWORD('$password') ";
+            $cargarUsuario = " SELECT * FROM profesores WHERE profesor_usuario = '$usuario' AND  profesor_password = PASSWORD('$password') ";
             $resultadoBD = $con->query($cargarUsuario);
             $usuarioObtenido = $resultadoBD->fetch_assoc();
 
