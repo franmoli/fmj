@@ -34,7 +34,7 @@
             <br>
 
             <div class="categoria text-center">
-                <h2 class="light-overlay"><a href="../index.php"><i class="fas fa-arrow-circle-left"></i>Volver al sitio</a></h2>
+                <h2 class="light-overlay"><a href="./logout.php"><i class="fas fa-arrow-circle-left"></i>Volver al sitio</a></h2>
             </div>
         </div>
     </div>
