@@ -24,25 +24,28 @@ if ($accion == "loguear") {
         } else {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             $usuario = strtoupper($usuario);
-            $cargarUsuario = " SELECT * FROM profesores WHERE profesor_usuario = '$usuario' AND  profesor_password = '$hashedPassword' ";
+            $cargarUsuario = " SELECT * FROM profesores WHERE profesor_usuario = '$usuario' ";
             $resultadoBD = $con->query($cargarUsuario);
             $usuarioObtenido = $resultadoBD->fetch_assoc();
 
             if ($usuarioObtenido) {
-                session_start();
-                $_SESSION['logueado'] = 1;
-                $_SESSION['usuario'] = $usuario;
-
-                $respuesta = array(
-                    'respuesta' => 'sesion_iniciada',
-                    'usuario' => $usuario
-                );
+                // Verificar la contraseña encriptada usando password_verify()
+                if (password_verify($password, $usuarioObtenido['profesor_password'])) {
+                    session_start();
+                    $_SESSION['logueado'] = 1;
+                    $_SESSION['usuario'] = $usuario;
+                    $respuesta = array(
+                        'respuesta' => 'sesion_iniciada',
+                        'usuario' => $usuario
+                    );
+                } else {
+                    $respuesta = array(
+                        'respuesta' => 'sesion_fallida',
+                    );
+                }
             } else {
                 $respuesta = array(
                     'respuesta' => 'sesion_fallida',
-                    'sql' => $cargarUsuario,
-                    'user' => $usuario,
-                    'pass' => $password
                 );
             }
         }
