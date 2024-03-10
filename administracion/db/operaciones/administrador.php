@@ -39,7 +39,8 @@ if ($accion == "loguear") {
                 );
             } else {
                 $respuesta = array(
-                    'respuesta' => 'sesion_fallida'
+                    'respuesta' => 'sesion_fallida',
+                    'sql' => $cargarUsuario
                 );
             }
         }
