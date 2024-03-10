@@ -6,10 +6,9 @@ $idCompetidor = $_GET['id'];
 $cargarCompetidor = " SELECT * FROM competidores WHERE dni = $idCompetidor ";
 $resultadoBD = $con->query($cargarCompetidor);
 $competidorObtenido = $resultadoBD->fetch_assoc();
-echo $competidorObtenido['club'];
-echo $_SESSION['club'];
-echo ($competidorObtenido['club'] != $_SESSION['club'] && $_SESSION['admin_level'] > 1);
-// if (!$competidorObtenido || ($competidorObtenido['club'] != $_SESSION['club'] && $_SESSION['admin_level'] > 1)) echo '<meta http-equiv="refresh" content="0; url=administrar-competidores.php">';
+
+// echo ($competidorObtenido['club'] != $_SESSION['club'] && $_SESSION['admin_level'] > 1);
+if (!$competidorObtenido || (strtoupper($competidorObtenido['club']) != strtoupper($_SESSION['club']) && $_SESSION['admin_level'] > 1)) echo '<meta http-equiv="refresh" content="0; url=administrar-competidores.php">';
 ?>
 
 <!DOCTYPE html>
