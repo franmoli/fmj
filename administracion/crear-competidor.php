@@ -84,7 +84,7 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Nombre -->
                     <div class="nombre">
-                        <label for="nombre-competidor">Nombre del competidor</label>
+                        <label for="nombre-competidor" style="color:black; font-size:1.6rem">Nombre del competidor</label>
                         <input id="nombre-competidor" class="text-white text-center with-error" type="text" placeholder="NOMBRE">
                         <small>
                             El campo debe contener entre 3 y 60 caracteres <br>
