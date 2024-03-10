@@ -40,7 +40,9 @@ if ($accion == "loguear") {
             } else {
                 $respuesta = array(
                     'respuesta' => 'sesion_fallida',
-                    'sql' => $cargarUsuario
+                    'sql' => $cargarUsuario,
+                    'user' => $usuario,
+                    'pass' => $password
                 );
             }
         }
