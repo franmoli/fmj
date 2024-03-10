@@ -129,7 +129,7 @@ if (!$competidorObtenido || (strtoupper($competidorObtenido['club']) != strtoupp
                     </div>
                     <!-- Club -->
                     <div class="club">
-                        <input id="club-competidor" class="text-white text-center with-error" type="text" value="<?php echo $competidorObtenido['club']; ?>">
+                        <input id="club-competidor" class="text-white text-center with-error" type="text" value="<?php echo $competidorObtenido['club']; ?>" readonly>
                         <small>
                             El campo debe contener entre 3 y 30 caracteres <br>
                             No deben incluirse caracteres especiales o números
