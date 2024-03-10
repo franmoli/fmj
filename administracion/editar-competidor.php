@@ -7,7 +7,7 @@ $cargarCompetidor = " SELECT * FROM competidores WHERE dni = $idCompetidor ";
 $resultadoBD = $con->query($cargarCompetidor);
 $competidorObtenido = $resultadoBD->fetch_assoc();
 
-if (!$competidorObtenido) echo '<meta http-equiv="refresh" content="0; url=administrar-competidores.php">';
+if (!$competidorObtenido || $competidorObtenido['club'] != $_SESSION['club']) echo '<meta http-equiv="refresh" content="0; url=administrar-competidores.php">';
 ?>
 
 <!DOCTYPE html>

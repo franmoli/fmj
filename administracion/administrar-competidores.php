@@ -5,7 +5,12 @@ require('templates/access_control.php');
 require('db/conexion.php');
 
 //COMPETIDORES
-$cargarCompetidor = " SELECT * FROM competidores ORDER BY apellido ";
+if ($_SESSION['admin_level'] > 1) {
+    $club = $_SESSION['club'];
+    $cargarCompetidor = " SELECT * FROM competidores WHERE club = '$club' ORDER BY apellido";
+} else {
+    $cargarCompetidor = " SELECT * FROM competidores ORDER BY apellido ";
+}
 $resultadoBD = $con->query($cargarCompetidor);
 
 $competidores = array();
