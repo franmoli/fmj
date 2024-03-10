@@ -252,7 +252,7 @@ function leerFormulario(formulario, accion) {
       datos.append("nacimiento", nacimientoCompetidor.val());
       datos.append("foto", fotoCompetidor.prop("files")[0]);
       datos.append("federacion", federacionCompetidor.val().toUpperCase());
-      datos.append("club", clubCompetidor.val().toUpperCase());
+      datos.append("club", clubCompetidor.val());
       datos.append("peso", pesoCompetidor.val().toUpperCase());
       datos.append(
         "categoria",
