@@ -174,7 +174,11 @@ require('templates/access_control.php'); ?>
                     </div>
                     <!-- Club -->
                     <div class="club">
-                        <input id="club-competidor" class="text-white text-center with-error" type="text" placeholder="CLUB">
+                        <?php if ($_SESSION['admin_level'] > 1) : ?>
+                            <input id="club-competidor" class="text-white text-center with-error" type="text" placeholder="CLUB" value="<?php echo $_SESSION['club'] ?>" readonly>
+                        <?php else : ?>
+                            <input id="club-competidor" class="text-white text-center with-error" type="text" placeholder="CLUB">
+                        <?php endif; ?>
                         <small>
                             El campo debe contener entre 3 y 30 caracteres <br>
                             No deben incluirse caracteres especiales o números
