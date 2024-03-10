@@ -23,6 +23,7 @@ if ($accion == "loguear") {
             );
         } else {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+            $usuario = strtoupper($usuario);
             $cargarUsuario = " SELECT * FROM profesores WHERE profesor_usuario = '$usuario' AND  profesor_password = '$hashedPassword' ";
             $resultadoBD = $con->query($cargarUsuario);
             $usuarioObtenido = $resultadoBD->fetch_assoc();
