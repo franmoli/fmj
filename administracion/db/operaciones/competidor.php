@@ -15,6 +15,9 @@ if ($accion == "crear") {
     $club = filter_var($_POST['club'], FILTER_SANITIZE_STRING);
     $peso = filter_var($_POST['peso'], FILTER_SANITIZE_NUMBER_INT);
     $categoria = filter_var($_POST['categoria'], FILTER_SANITIZE_STRING);
+    if ($_SESSION['admin_level'] > 1) {
+        $club = $_SESSION['club'];
+    }
     //Intento hacer la operación en la base de datos
     try {
         if ($_FILES['foto']['type'] == 'image/png' || $_FILES['foto']['type'] == 'image/jpg' || $_FILES['foto']['type'] == 'image/jpeg') {
