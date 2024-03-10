@@ -65,34 +65,35 @@ while ($competidoresTorneos = $resultadoBD->fetch_assoc()) {
                 </div>
 
                 <hr>
+                <?php if ($_SESSION['admin_level'] <= 1) : ?>
+                    <div class="torneos">
+                        <!-- Descripción -->
+                        <section id="descripcion-administrar-elemento" class="text-center">
+                            <h1>TORNEOS</h1>
+                            <p>
+                                Se han encontrado un total de <?php echo count($torneos); ?> torneos creados
+                            </p>
+                        </section>
 
-                <div class="torneos">
-                    <!-- Descripción -->
-                    <section id="descripcion-administrar-elemento" class="text-center">
-                        <h1>TORNEOS</h1>
-                        <p>
-                            Se han encontrado un total de <?php echo count($torneos); ?> torneos creados
-                        </p>
-                    </section>
-
-                    <hr>
-                    <!-- Tabla de Torneos -->
-                    <section id="tabla-de-administracion" class="tabla-index-2 text-center" style="overflow:scroll; width:95%; margin: 0 auto;">
-                        <table id="tabla-administrar">
-                            <tbody>
-                                <?php
-                                foreach ($torneos as $torneo) {
-                                ?>
-                                    <tr>
-                                        <td width="100%"><?php echo $torneo['nombre']; ?></td>
-                                    </tr>
-                                <?php
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </section>
-                </div>
+                        <hr>
+                        <!-- Tabla de Torneos -->
+                        <section id="tabla-de-administracion" class="tabla-index-2 text-center" style="overflow:scroll; width:95%; margin: 0 auto;">
+                            <table id="tabla-administrar">
+                                <tbody>
+                                    <?php
+                                    foreach ($torneos as $torneo) {
+                                    ?>
+                                        <tr>
+                                            <td width="100%"><?php echo $torneo['nombre']; ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                <?php endif; ?>
             </div>
         </main>
     </div>
