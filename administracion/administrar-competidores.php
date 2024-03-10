@@ -1,7 +1,6 @@
 <?php
-//Verifico el inicio de sesión del administrador
-session_start();
-if ($_SESSION['logueado'] == 0) echo '<meta http-equiv="refresh" content="0; url=login.php">';
+//controlo el acceso sin autorizacion
+require('templates/access_control.php');
 //Cargo los datos necesarios de la base de datos
 require('db/conexion.php');
 

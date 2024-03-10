@@ -16,7 +16,7 @@ if ($accion == "loguear") {
             session_start();
             $_SESSION['logueado'] = 1;
             $_SESSION['usuario'] = $usuario;
-
+            $_SESSION['admin_level'] = '1';
             $respuesta = array(
                 'respuesta' => 'sesion_iniciada',
                 'usuario' => $usuario
@@ -34,6 +34,9 @@ if ($accion == "loguear") {
                     session_start();
                     $_SESSION['logueado'] = 1;
                     $_SESSION['usuario'] = $usuario;
+                    $_SESSION['admin_level'] = '2';
+                    $_SESSION['club'] = $usuarioObtenido['profesor_club'];
+
                     $respuesta = array(
                         'respuesta' => 'sesion_iniciada',
                         'usuario' => $usuario

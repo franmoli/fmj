@@ -1,9 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-session_start();
-if ($_SESSION['logueado'] == 0) echo '<meta http-equiv="refresh" content="0; url=login.php">';
-
+//controlo el acceso sin autorizacion
+require('templates/access_control.php');
 require('db/conexion.php');
 $idProfesor = $_GET['id'];
 $cargarProfesor = " SELECT * FROM profesores WHERE profesor_id = $idProfesor ";
