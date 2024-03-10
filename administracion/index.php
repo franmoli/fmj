@@ -46,6 +46,7 @@ while ($competidoresTorneos = $resultadoBD->fetch_assoc()) {
                     </section>
 
                     <hr>
+                    <input type="hidden" name="admin_level" id="admin_level" value="<?php echo $_SESSION['admin_level'] ?>">
                     <!-- Tabla de Competidores -->
                     <section id="tabla-de-administracion" class="tabla-index-1 text-center" style="overflow:scroll; width:95%; margin: 0 auto;">
                         <table id="tabla-administrar">

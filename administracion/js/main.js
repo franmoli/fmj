@@ -592,10 +592,18 @@ $(".datepicker-fechas").datepicker({
 //   elemsPerPage: 5,
 //   maxButtons: 5,
 // });
-$(".tabla-index-1 table").paginate({
-  elemsPerPage: 5,
-  maxButtons: 5,
-});
+if ($("#admin_level").val() = 2) {
+  $(".tabla-index-1 table").paginate({
+    elemsPerPage: 12,
+    maxButtons: 5,
+  });
+}else{
+
+  $(".tabla-index-1 table").paginate({
+    elemsPerPage: 5,
+    maxButtons: 5,
+  });
+}
 $(".tabla-index-2 table").paginate({
   elemsPerPage: 5,
   maxButtons: 5,
