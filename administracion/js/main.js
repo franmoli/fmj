@@ -675,15 +675,15 @@ $(document).ready(function () {
   //Formulario
   let formularioCrearCompetidor = $("#crear-competidor");
   if (formularioCrearCompetidor.length) {
-    $("#nombre-competidor").val("");
-    $("#apellido-competidor").val("");
-    $("#dni-competidor").val("");
-    $("#email-competidor").val("");
-    $("#telefono-competidor").val("");
-    $("#nacimiento-competidor").val("");
-    $("#federacion-competidor").val("");
-    $("#club-competidor").val("");
-    $("#peso-competidor").val("");
+    // $("#nombre-competidor").val("");
+    // $("#apellido-competidor").val("");
+    // $("#dni-competidor").val("");
+    // $("#email-competidor").val("");
+    // $("#telefono-competidor").val("");
+    // $("#nacimiento-competidor").val("");
+    // $("#federacion-competidor").val("");
+    // $("#club-competidor").val("");
+    // $("#peso-competidor").val("");
 
     $(formularioCrearCompetidor).on("submit", function () {
       leerFormulario("competidor", "crear");
