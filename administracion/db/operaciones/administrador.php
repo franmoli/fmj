@@ -22,9 +22,24 @@ if ($accion == "loguear") {
                 'usuario' => $usuario
             );
         } else {
-            $respuesta = array(
-                'respuesta' => 'sesion_fallida'
-            );
+            $cargarUsuario = " SELECT * FROM profesores WHERE profesor_usuario = '$usuario' AND  password = PASSWORD('$password') ";
+            $resultadoBD = $con->query($cargarUsuario);
+            $usuarioObtenido = $resultadoBD->fetch_assoc();
+
+            if ($usuarioObtenido) {
+                session_start();
+                $_SESSION['logueado'] = 1;
+                $_SESSION['usuario'] = $usuario;
+
+                $respuesta = array(
+                    'respuesta' => 'sesion_iniciada',
+                    'usuario' => $usuario
+                );
+            } else {
+                $respuesta = array(
+                    'respuesta' => 'sesion_fallida'
+                );
+            }
         }
     } catch (\Exception $e) {
         $respuesta = array(
