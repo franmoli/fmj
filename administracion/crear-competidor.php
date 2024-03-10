@@ -175,7 +175,7 @@ require('templates/access_control.php'); ?>
                     <!-- Club -->
                     <div class="club">
                         <?php if ($_SESSION['admin_level'] > 1) : ?>
-                            <input id="club-competidor" class="text-white text-center with-error" type="text" placeholder="CLUB" value="<?php echo $_SESSION['club'] ?>" readonly>
+                            <input id="club-competidor" class="text-white text-center with-error" type="text" value="<?php echo $_SESSION['club'] ?>" readonly>
                         <?php else : ?>
                             <input id="club-competidor" class="text-white text-center with-error" type="text" placeholder="CLUB">
                         <?php endif; ?>
