@@ -594,7 +594,7 @@ $(".datepicker-fechas").datepicker({
 // });
 if ($("#admin_level").val() == 2) {
   $(".tabla-index-1 table").paginate({
-    elemsPerPage: 12,
+    elemsPerPage: 15,
     maxButtons: 5,
   });
 } else {
