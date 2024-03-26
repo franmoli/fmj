@@ -31,9 +31,7 @@
                             <li class="itemnav">
                                 <a href="patrocinadores.php">Patrocinadores</a>
                             </li>
-                            <li class="itemnav">
-                                <a href="inscripciones.php">Inscripciones</a>
-                            </li>
+
                             <li class="itemnav">
                                 <a href="objetivos.php">Objetivos</a>
                             </li>
@@ -42,6 +40,9 @@
                             </li>
                             <li class="itemnav">
                                 <a href="cursos.php">Cursos</a>
+                            </li>
+                            <li class="itemnav">
+                                <a href="administracion/login.php">Profesores</a>
                             </li>
                         </div>
                     </div>
@@ -82,9 +83,6 @@
                 <a href="patrocinadores.php">Patrocinadores</a>
             </li>
             <li class="itemnav">
-                <a href="inscripciones.php">Inscripciones</a>
-            </li>
-            <li class="itemnav">
                 <a href="objetivos.php">Objetivos</a>
             </li>
             <li class="itemnav">
@@ -92,6 +90,9 @@
             </li>
             <li class="itemnav">
                 <a href="cursos.php">Cursos</a>
+            </li>
+            <li class="itemnav">
+                <a href="administracion/login.php">Profesores</a>
             </li>
         </div>
     </div>
