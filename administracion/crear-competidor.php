@@ -186,7 +186,98 @@ require('templates/access_control.php'); ?>
                         <?php if ($_SESSION['admin_level'] > 1) : ?>
                             <input id="club-competidor" class="text-white text-center with-error" type="text" value="<?php echo $_SESSION['club'] ?>" readonly>
                         <?php else : ?>
-                            <input id="club-competidor" class="text-white text-center with-error" type="text" placeholder="CLUB">
+                            <select id="club-competidor" class="text-white text-center" name="club">
+                                <option value="AsocJaponesa">Asociacion Japonesa</option>
+                                <option value="AsocJorgePortelli">Asociación Jorge Portelli</option>
+                                <option value="AsocKarateQuilmes">Asociacion Karate Quilmes</option>
+                                <option value="AsocMisionera">Asociacion Misionera de Judo</option>
+                                <option value="Athenas">Athenas Judo Team</option>
+                                <option value="Betsubara">Betsubara Dojo</option>
+                                <option value="CentroSyuen">Centro de Educacion Fisica Syuen</option>
+                                <option value="CentroMalvinasMarDelPlata">Centro de Ex Soldados Combatientes en Malvinas - Mar del plata</option>
+                                <option value="Okinawense">Centro Okinawense</option>
+                                <option value="JudoChascomus">Judo Chascomus</option>
+                                <option value="CirculoRayoRojo">Circulo del Yudo del Rayo rojo</option>
+                                <option value="DojoGoaLiniers">Dojo GOA Liniers - CABA</option>
+                                <option value="DojoGoaFlorida">Dojo GOA Florida - Viciente López</option>
+                                <option value="DojoGoaBecar">Dojo GOA Becar - Provincia de BS AS</option>
+                                <option value="DojoGoaSerrano">Dojo GOA Serrano - CABA</option>
+                                <option value="DojoGoaPasoDelRey">Dojo GOA Paso del Rey - Provincia de Bs As</option>
+                                <option value="DojoGoaSanMiguel">Dojo GOA San Miguel - Provincia de Bs As</option>
+                                <option value="CirculoPoliciaFederal">Circulo de Suboficiales de la Policia Federal</option>
+                                <option value="ClubBancoNacion">Club Atletico Banco Nacion Argentina</option>
+                                <option value="ClubElPorvenir">Club Atlético el Porvenir</option>
+                                <option value="Huracan">Club Atlético Huracán</option>
+                                <option value="Independiente">Club Atlético Independiente</option>
+                                <option value="Ituzaingo">Club Atlético Ituzaingo</option>
+                                <option value="QuilmesMarDelPlata">Club Atlético Quilmes de Mar del plata</option>
+                                <option value="Velez">Club Atlético Velez Sarsfield</option>
+                                <option value="ClubCiudad">Club Ciudad De Buenos Aires</option>
+                                <option value="EstudiantesBahiaBlanca">Club Estudiantes De Bahia Blanca</option>
+                                <option value="FerrocarrilOeste">Club Ferrocarril Oeste</option>
+                                <option value="ClubItaliano">Club Italiano</option>
+                                <option value="ClubLujan">Club Lujan</option>
+                                <option value="LosIndios">Club Recreativo Los Indios - Moreno</option>
+                                <option value="ClubSanFernando">Club San Fernando</option>
+                                <option value="ClubUniversitario">Club Universitario Buenos Aires</option>
+                                <option value="ColegioCrisoforoColombo">Colegio Crisóforo Colombo</option>
+                                <option value="ColegioManuelBelgrano">Colegio Manuel Belgrano</option>
+                                <option value="CulturalWilcoop">Cultural Wilcoop Deportivo</option>
+                                <option value="DoblasJudo">Doblas Judo</option>
+                                <option value="DojoArashi">Dojo Arashi Judo Tandil</option>
+                                <option value="DojoBushidoKan">Dojo Bushido Kan - Mar del Plata</option>
+                                <option value="DojoHimeji">Dojo Himeji - Lujan</option>
+                                <option value="DojoIndia">Dojo India - Club Atletico Francisco Alvarez</option>
+                                <option value="DojoJudoZambon">Dojo Judo Zambón</option>
+                                <option value="DojoKentoshi">Dojo Kentoshi</option>
+                                <option value="DojoNakadakari">Dojo Nakadakari</option>
+                                <option value="DojoSakura">Dojo Sakura</option>
+                                <option value="DojoSamuray">Dojo Samuray</option>
+                                <option value="DojoSenshi">Dojo Senshi</option>
+                                <option value="DojoShinnosuke">Dojo Shinnosukke</option>
+                                <option value="DojoShukaku">Dojo Shukaku</option>
+                                <option value="DojoTakeshi">Dojo Takeshi - Mar del Plata</option>
+                                <option value="DojoVerebClaudio">Dojo Vereb Claudio</option>
+                                <option value="DojoWizard">Dojo Wizard - Mar del Plata</option>
+                                <option value="DojoZurita">Dojo Zurita</option>
+                                <option value="EscuelaNamBuKan">Escuela de Judo y Aikido Nam Bu Kan</option>
+                                <option value="EscuelaJigoroKano">Escuela de Judo Municipal Chacabuco - Jigoro Kano</option>
+                                <option value="InstitutoAPAND">Instituto APAND</option>
+                                <option value="InstitutoGaleano">Instituto Galeano</option>
+                                <option value="InstitutoBudokan">Instituto Budokan</option>
+                                <option value="InstitutoMoruli">Instituto Educativo Moruli</option>
+                                <option value="InstitutoKumazawa">Instituto Kumazawa</option>
+                                <option value="InstitutoNichiaGaukin">Instituto Privado Argentino Japones Nichia Gaukin</option>
+                                <option value="InstitutoRenacimiento">Instituto Renacimiento</option>
+                                <!-- <option value="InstitutoStratico">Instituto Stratico</option> -->
+                                <option value="InstitutoUlises">Instituto Ulises</option>
+                                <option value="JudoBallester">Judo Ballester</option>
+                                <option value="JudoFansMadryn">Judo Fans Madryn</option>
+                                <option value="JudoJuncosSanMiguel">Judo Juncos San Miguel</option>
+                                <option value="JudoSanFcoJavien">Judo San Francisco Javier</option>
+                                <option value="UnionTigrense">Club Atlético Union Tigrense</option>
+                                <option value="ColegioGodspell">Colegio Godspell Pilar</option>
+                                <option value="ColegioMarin">Colegio Marin San Isidro</option>
+                                <option value="ColegioOakhillCaba">Colegio Oakhill CABA</option>
+                                <option value="ColegioOakhillPilar">Colegio Oakhill Pilar</option>
+                                <option value="ColegioMoorlandsCaba">Colegio St. Catherine's Moorlands CABA</option>
+                                <option value="ColegioMoorlandsTortuguitas">Colegio St. Catherine's Moorlands Tortuguitas</option>
+                                <option value="ColegioSanGabriel">Colegio San Gabriel</option>
+                                <option value="DojoBelgrano">El Dojo Belgrano</option>
+                                <option value="FundacionArgJaponesa">Fundacion Cultural Argentino Japonesa</option>
+                                <option value="DojoLaOla">La Ola Dojo San Fernando</option>
+                                <option value="DojoMiras">Dojo Miras</option>
+                                <option value="MunicipalidadBerazategui">Municipalidad de Berazategui</option>
+                                <option value="OctogonoFightClub">Octogono Fight Club</option>
+                                <option value="OlympicClub">Olympic Club</option>
+                                <option value="PolideportivoChacabuco">Polideportivo Chacabuco</option>
+                                <option value="ResilienciaJudo">Resiliencia Judo</option>
+                                <option value="Shidokan">Shidokan Judo</option>
+                                <option value="DojoTakeshi">Dojo Takeshi</option>
+                                <option value="UnivTecnologicaMarDelPlata">Universidad Tecnologica de Mar del Plata</option>
+                                <option value="YasudaDojo">Yasuda Dojo - Club Victoria </option>
+                            </select>
+                            <!-- <input id="club-competidor" class="text-white text-center with-error" type="text" placeholder="CLUB"> -->
                         <?php endif; ?>
                         <small>
                             El campo debe contener entre 3 y 30 caracteres <br>
