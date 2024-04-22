@@ -187,6 +187,7 @@ require('templates/access_control.php'); ?>
                             <input id="club-competidor" class="text-white text-center with-error" type="text" value="<?php echo $_SESSION['club'] ?>" readonly>
                         <?php else : ?>
                             <select id="club-competidor" class="text-white text-center" name="club">
+                                <option value="DoblasJudo">Doblas Judo</option>
                                 <option value="AsocJaponesa">Asociacion Japonesa</option>
                                 <option value="AsocJorgePortelli">Asociación Jorge Portelli</option>
                                 <option value="AsocKarateQuilmes">Asociacion Karate Quilmes</option>

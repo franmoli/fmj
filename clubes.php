@@ -16,6 +16,13 @@
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <article class="post--vertical cat-2">
                     <div class="post__thumb contenedor-patrocinador">
+                        <a href="img/Clubes/logo-doblas.jpg" data-lightbox="img-doblas" class="imagen-patrocinador"><img src="img/Clubes/logo-doblas.jpg" alt="image"></a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <article class="post--vertical cat-2">
+                    <div class="post__thumb contenedor-patrocinador">
                         <a href="img/Clubes/logo-sanfernando.jpeg" data-lightbox="img-sanfernando" class="imagen-patrocinador"><img src="img/Clubes/logo-sanfernando.jpeg" alt="image"></a>
                     </div>
                 </article>

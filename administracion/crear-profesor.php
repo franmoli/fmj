@@ -31,6 +31,7 @@ require('templates/access_control.php'); ?>
                             <label for="club" class="col-md-12">CLUB</label>
                         </div>
                         <select id="club" class="text-white text-center" name="club">
+                            <option value="DoblasJudo">Doblas Judo</option>
                             <option value="AsocJaponesa">Asociacion Japonesa</option>
                             <option value="AsocJorgePortelli">Asociación Jorge Portelli</option>
                             <option value="AsocKarateQuilmes">Asociacion Karate Quilmes</option>
