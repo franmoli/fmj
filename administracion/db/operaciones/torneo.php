@@ -163,9 +163,9 @@ if ($accion == "crear") {
             }
         }
 
-//        // Agrego el ID
-//        $valores[] = $id;
-//        $tipos .= 'i';
+        // Agrego el ID
+        $valores[] = $id;
+        $tipos .= 'i';
 
         // Construyo consulta dinámica
         $sql = 'UPDATE torneos SET ' . implode(', ', $campos) . ' WHERE id = ?';
@@ -183,11 +183,11 @@ if ($accion == "crear") {
             } else {
                 $respuesta = [
                     'respuesta' => 'torneo_fallido',
-                    'errores' => $stmt->error_list,
-                    'query' => $sql,
-                    'campos' => $campos,
-                    'tipos' => $tipos,
-                    'valores' => $valores
+//                    'errores' => $stmt->error_list,
+//                    'query' => $sql,
+//                    'campos' => $campos,
+//                    'tipos' => $tipos,
+//                    'valores' => $valores
                 ];
             }
 
