@@ -100,6 +100,14 @@ if (!$torneoObtenido) echo '<meta http-equiv="refresh" content="0; url=administr
                             <div>SUBIR ARCHIVO</div>
                         </label>
                     </div>
+                    <!-- Resultados -->
+                    <div class="resultados">
+                        <div class="resultados-torneo"><input id="resultados-torneo" class="text text-center" type="file"
+                                                              placeholder="REUSLTADOS DEL TORNEO"></div>
+                        <label for="resultados-torneo" class="file text-center col-md-12">
+                            <div>SUBIR ARCHIVO</div>
+                        </label>
+                    </div>
                     <!-- IMAGEN -->
                     <h3 class="text-left">IMAGEN</h3>
                     <div class="foto">
@@ -108,7 +116,14 @@ if (!$torneoObtenido) echo '<meta http-equiv="refresh" content="0; url=administr
                             <div>SUBIR FOTO</div>
                         </label>
                     </div>
-
+                    <!-- Inscripcion habilitada -->
+                    <div class="col-md-4 checkbox-button" style="margin: 0 auto;">
+                        <input id="inscripcion-habilitada" type="checkbox" name="inscripcion">
+                        <label for="inscripcion-habilitada">
+                            <div class="icono"></div>
+                            <span>Inscripción habilitada</span>
+                        </label>
+                    </div>
                     <hr>
                     <!-- Enviar formulario -->
                     <input type="hidden" id="id-torneo" value="<?php echo $idTorneo; ?>">

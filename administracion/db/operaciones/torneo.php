@@ -7,6 +7,7 @@ if ($accion == "crear") {
     //Paso los datos ingresados por el usuario por un filtro para evitar codigo malo
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
     $categorias = filter_var($_POST['categorias'], FILTER_SANITIZE_STRING);
+    $inscripcion = filter_var($_POST['inscripcion'], FILTER_SANITIZE_NUMBER_INT);
     $urlImagen = "";
     $urlReglas = "";
     $urlResultados = "";
@@ -69,9 +70,9 @@ if ($accion == "crear") {
             }
         }
         $stmt = $con->prepare(
-            'INSERT INTO torneos (nombre, categorias, reglas, imagen, resultados) VALUES (?, ?, ?, ?, ?)'
+            'INSERT INTO torneos (nombre, categorias, reglas, imagen, resultados, inscripcion) VALUES (?, ?, ?, ?, ?, ?)'
         );
-        $stmt->bind_param('sssss', $nombre, $categorias, $urlReglas, $urlImagen, $urlResultados);
+        $stmt->bind_param('sssssi', $nombre, $categorias, $urlReglas, $urlImagen, $urlResultados, $inscripcion);
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
             $respuesta = array(
@@ -96,11 +97,12 @@ if ($accion == "crear") {
         $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
         $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
         $categorias = filter_var($_POST['categorias'], FILTER_SANITIZE_STRING);
+        $inscripcion = filter_var($_POST['inscripcion'], FILTER_SANITIZE_NUMBER_INT);
 
         // Inicializo los campos a actualizar
-        $campos = ['nombre = ?', 'categorias = ?'];
-        $valores = [$nombre, $categorias];
-        $tipos = 'ss';
+        $campos = ['nombre = ?', 'categorias = ?', 'inscripcion = ?'];
+        $valores = [$nombre, $categorias, $inscripcion];
+        $tipos = 'ssi';
 
         // Procesar imagen si fue subida
         if (!empty($_FILES['imagen']['name']) && in_array(
@@ -160,9 +162,9 @@ if ($accion == "crear") {
             }
         }
 
-        // Agrego el ID
-        $valores[] = $id;
-        $tipos .= 'i';
+//        // Agrego el ID
+//        $valores[] = $id;
+//        $tipos .= 'i';
 
         // Construyo consulta dinámica
         $sql = 'UPDATE torneos SET ' . implode(', ', $campos) . ' WHERE id = ?';

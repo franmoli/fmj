@@ -268,6 +268,7 @@ function leerFormulario(formulario, accion) {
       const nombreTorneo = $("#nombre-torneo");
       /* Checkbox Buttons */
       const categoriasTorneo = $("#categorias-torneo input");
+      const inscripcionHabilitada = $('#inscripcion-habilitada').is(':checked');
       /* Archivo */
       const reglasTorneo = $("#reglas-torneo");
       const resultadosTorneo = $("#resultados-torneo");
@@ -303,6 +304,7 @@ function leerFormulario(formulario, accion) {
       datos.append("resultados", resultadosTorneo.prop("files")[0]);
       datos.append("imagen", imagenTorneo.prop("files")[0]);
       datos.append("accion", accion);
+      datos.append("inscripcion", inscripcionHabilitada);
       actualizarBD("torneo", datos);
     }
   } else if (formulario == "profesor") {
@@ -548,6 +550,38 @@ jQuery("#reglas-torneo").change(function () {
       .next()
       .find("div")
       .html(filename);
+  }
+});
+
+jQuery("#resultados-torneo").change(function () {
+  let archivoSubido = this["files"][0];
+  if (archivoSubido["size"] > 10000000) {
+    var idname = jQuery(this).attr("id");
+    jQuery("div." + idname)
+        .next()
+        .find("div")
+        .html("ARCHIVO PESADO. MAX: 10MB");
+    this.value = "";
+  } else if (
+      archivoSubido["type"] != "application/pdf" &&
+      archivoSubido["type"] !=
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" &&
+      archivoSubido["type"] !=
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  ) {
+    var idname = jQuery(this).attr("id");
+    jQuery("div." + idname)
+        .next()
+        .find("div")
+        .html("TIPO DE ARCHIVO NO SOPORTADO");
+    this.value = "";
+  } else {
+    var filename = jQuery(this).val().split("\\").pop();
+    var idname = jQuery(this).attr("id");
+    jQuery("div." + idname)
+        .next()
+        .find("div")
+        .html(filename);
   }
 });
 jQuery(".fotarda").change(function () {
