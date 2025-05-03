@@ -7,7 +7,7 @@ if ($accion == "crear") {
     //Paso los datos ingresados por el usuario por un filtro para evitar codigo malo
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
     $categorias = filter_var($_POST['categorias'], FILTER_SANITIZE_STRING);
-    $inscripcion = filter_var($_POST['inscripcion'], FILTER_SANITIZE_NUMBER_INT);
+    $inscripcion = $_POST['inscripcion'] ? 1 : 0;
     $urlImagen = "";
     $urlReglas = "";
     $urlResultados = "";
@@ -69,9 +69,8 @@ if ($accion == "crear") {
                 throw new Exception("No se pudo subir el archivo");
             }
         }
-        $stmt = $con->prepare(
-            'INSERT INTO torneos (nombre, categorias, reglas, imagen, resultados, inscripcion) VALUES (?, ?, ?, ?, ?, ?)'
-        );
+        $sql = 'INSERT INTO torneos (nombre, categorias, reglas, imagen, resultados, inscripcion) VALUES (?, ?, ?, ?, ?, ?)';
+        $stmt = $con->prepare($sql);
         $stmt->bind_param('sssssi', $nombre, $categorias, $urlReglas, $urlImagen, $urlResultados, $inscripcion);
         $stmt->execute();
         if ($stmt->affected_rows > 0) {
@@ -80,9 +79,11 @@ if ($accion == "crear") {
                 'nombre' => $nombre
             );
         } else {
-            $respuesta = array(
-                'respuesta' => 'torneo_fallido'
-            );
+            $respuesta = [
+                'respuesta' => 'torneo_fallido',
+                'errores' => $stmt->error_list,
+                'query' => $sql
+            ];
         }
 
         $stmt->close();
@@ -97,7 +98,7 @@ if ($accion == "crear") {
         $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
         $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
         $categorias = filter_var($_POST['categorias'], FILTER_SANITIZE_STRING);
-        $inscripcion = filter_var($_POST['inscripcion'], FILTER_SANITIZE_NUMBER_INT);
+        $inscripcion = $_POST['inscripcion'] ? 1 : 0;
 
         // Inicializo los campos a actualizar
         $campos = ['nombre = ?', 'categorias = ?', 'inscripcion = ?'];
@@ -181,7 +182,9 @@ if ($accion == "crear") {
                 ];
             } else {
                 $respuesta = [
-                    'respuesta' => 'torneo_fallido'
+                    'respuesta' => 'torneo_fallido',
+                    'errores' => $stmt->error_list,
+                    'query' => $sql
                 ];
             }
 
