@@ -180,8 +180,8 @@ function leerFormulario(formulario, accion) {
     datos.append("password", password);
     datos.append("accion", "loguear");
     actualizarBD("administrador", datos);
-  } else if (formulario == "competidor") {
-    if (accion == "crear" || accion == "editar") {
+  } else if (formulario === "competidor") {
+    if (accion === "crear" || accion === "editar") {
       //Obtengo los valores
       /* Input Text */
       const nombreCompetidor = $("#nombre-competidor");
@@ -261,8 +261,8 @@ function leerFormulario(formulario, accion) {
       datos.append("accion", accion);
       actualizarBD("competidor", datos);
     }
-  } else if (formulario == "torneo") {
-    if (accion == "crear" || accion == "editar") {
+  } else if (formulario === "torneo") {
+    if (accion === "crear" || accion === "editar") {
       //Obtengo los valores
       /* Input Text */
       const nombreTorneo = $("#nombre-torneo");
@@ -270,6 +270,7 @@ function leerFormulario(formulario, accion) {
       const categoriasTorneo = $("#categorias-torneo input");
       /* Archivo */
       const reglasTorneo = $("#reglas-torneo");
+      const resultadosTorneo = $("#resultados-torneo");
       // Arhivo imagen
       const imagenTorneo = $(".fotarda");
       //Realizo las validaciones correspondientes para los campos (Aquellos que no requieran longitud se establecen en '0' y '9999')
@@ -279,21 +280,27 @@ function leerFormulario(formulario, accion) {
       /* Categorias */
       if (!validarCheckboxButton(categoriasTorneo)) return false;
       /* Reglas */
-      if (accion == "crear") {
+      if (accion === "crear") {
         if (!validarArchivo(reglasTorneo)) return false;
       }
-      if (accion == "crear") {
+      /* Resultados */
+      if (accion === "crear") {
+        if (!validarArchivo(resultadosTorneo)) return false;
+      }
+      /* Foto */
+      if (accion === "crear") {
         if (!validarFoto(imagenTorneo)) return false;
       }
       //Envio los datos hacia la base de datos
       const datos = new FormData();
-      if (accion == "editar") {
+      if (accion === "editar") {
         const id = $("#id-torneo").val();
         datos.append("id", id);
       }
       datos.append("nombre", nombreTorneo.val().toUpperCase());
       datos.append("categorias", obtenerValorCheckBox(categoriasTorneo));
       datos.append("reglas", reglasTorneo.prop("files")[0]);
+      datos.append("resultados", resultadosTorneo.prop("files")[0]);
       datos.append("imagen", imagenTorneo.prop("files")[0]);
       datos.append("accion", accion);
       actualizarBD("torneo", datos);

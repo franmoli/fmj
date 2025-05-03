@@ -120,7 +120,7 @@ include 'templates/header.php'; ?>
                     </label>
                 </div>
                 <!-- Inscripcion habilitada -->
-                <div class="col-md-4 checkbox-button">
+                <div class="col-md-4 checkbox-button" style="margin: 0 auto;">
                     <input id="inscripcion-habilitada" type="checkbox" name="inscripcion">
                     <label for="inscripcion-habilitada">
                         <div class="icono"></div>
