@@ -83,6 +83,7 @@
                                     <ul class="listabotones">
                                         <li><a href="calendario.php?torneo=<?php echo $torneo['id']; ?>">Calendario</a></li>
                                         <li><a href="<?php echo $torneo['reglas']; ?>" target="_blank">Ver Reglas</a></li>
+                                        <li><a href="<?php echo $torneo['resultados']; ?>" target="_blank">Ver Reglas</a></li>
                                         <li><a href="inscripcion-torneo.php?id=<?php echo $torneo['id']; ?>">Inscribirse</a></li>
                                     </ul>
                                 </div>
