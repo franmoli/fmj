@@ -184,7 +184,10 @@ if ($accion == "crear") {
                 $respuesta = [
                     'respuesta' => 'torneo_fallido',
                     'errores' => $stmt->error_list,
-                    'query' => $sql
+                    'query' => $sql,
+                    'campos' => $campos,
+                    'tipos' => $tipos,
+                    'valores' => $valores
                 ];
             }
 
