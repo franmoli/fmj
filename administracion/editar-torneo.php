@@ -120,7 +120,7 @@ if (!$torneoObtenido) echo '<meta http-equiv="refresh" content="0; url=administr
                     </div>
                     <!-- Inscripcion habilitada -->
                     <div class="col-md-4 checkbox-button" style="margin: 0 auto;">
-                        <input id="inscripcion-habilitada" type="checkbox" name="inscripcion">
+                        <input id="inscripcion-habilitada" type="checkbox" name="inscripcion" <?php if ($torneoObtenido['inscripcion']) echo "checked"; ?>>
                         <label for="inscripcion-habilitada">
                             <div class="icono"></div>
                             <span>Inscripción habilitada</span>
