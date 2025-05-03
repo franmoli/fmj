@@ -1,7 +1,7 @@
 <?php
     //Cargo los datos necesarios de la base de datos
     require('administracion/db/conexion.php');
-    
+
     //TORNEOS
     $cargarTorneos = " SELECT * FROM `torneos` ";
     $resultadoBD = $con->query($cargarTorneos);
@@ -29,7 +29,7 @@
                 <!-- INDICADORES -->
                 <ul class="carousel-indicators" style="margin-bottom:0">
                     <?php
-                        $contador = 0; 
+                        $contador = 0;
                         if (count($torneos) == 0) { ?>
                             <li data-target="#carousel-torneos" data-slide-to="0" class="active"></li>
                         <?php }
@@ -37,7 +37,7 @@
                     ?>
                             <li data-target="#carousel-torneos" data-slide-to="<?php echo $contador; ?>" class="<?php if($contador == 0) echo "active"; ?>"></li>
                     <?php
-                            $contador++; 
+                            $contador++;
                         }
                     ?>
                 </ul>
@@ -53,18 +53,18 @@
                                     <h3>No hay torneos cargados por el momento</h3>
 
                                     <br>
-                                    
+
                                 </div>
                             </div>
                     <?php
                         }
-                        $contador = 0; 
+                        $contador = 0;
                         foreach($torneos as $torneo){
                             $torneo['categorias'] = str_replace('{', '', $torneo['categorias']);
                             $torneo['categorias'] = str_replace('}', '', $torneo['categorias']);
                             $torneo['reglas'] = str_replace('*', '<br><br>*', $torneo['reglas']);
                     ?>
-                            
+
                             <!-- SLIDE -->
                             <div class="carousel-item <?php if($contador == 0) echo "active"; ?>" style="
                             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('<?php echo $torneo['imagen'] ?>');
@@ -83,13 +83,17 @@
                                     <ul class="listabotones">
                                         <li><a href="calendario.php?torneo=<?php echo $torneo['id']; ?>">Calendario</a></li>
                                         <li><a href="<?php echo $torneo['reglas']; ?>" target="_blank">Ver Reglas</a></li>
-                                        <li><a href="<?php echo $torneo['resultados']; ?>" target="_blank">Ver Resultados</a></li>
-                                        <li><a href="inscripcion-torneo.php?id=<?php echo $torneo['id']; ?>">Inscribirse</a></li>
+                                        <?php if($torneo['resultados'] != ""): ?>
+                                            <li><a href="<?php echo $torneo['resultados']; ?>" target="_blank">Ver Resultados</a></li>
+                                        <?php endif; ?>
+                                        <?php if($torneo['inscripcion'] != "0"): ?>
+                                            <li><a href="inscripcion-torneo.php?id=<?php echo $torneo['id']; ?>">Inscribirse</a></li>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                             </div>
                     <?php
-                            $contador++; 
+                            $contador++;
                         }
                     ?>
                 </div>
@@ -102,7 +106,7 @@
                 </a>
             </div>
         </section>
-        
+
         <!-- FOOTER -->
         <?php include 'templates/footer.php' ?>
         <!-- SCRIPTS -->

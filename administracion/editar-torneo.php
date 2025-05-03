@@ -100,6 +100,8 @@ if (!$torneoObtenido) echo '<meta http-equiv="refresh" content="0; url=administr
                             <div>SUBIR ARCHIVO</div>
                         </label>
                     </div>
+
+                    <h3 class="text-left">RESULTADOS</h3>
                     <!-- Resultados -->
                     <div class="resultados">
                         <div class="resultados-torneo"><input id="resultados-torneo" class="text text-center" type="file"
