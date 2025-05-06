@@ -92,7 +92,7 @@ try {
                                         <?php endif; ?>
                                         <?php
                                         $carpeta = './resultados/' . $torneo['id'] . '/';
-                                        $archivos = '';
+                                        $archivos = [];
                                         if (is_dir($carpeta)) {
                                             echo "aaa";
                                             $archivos = array_diff(scandir($carpeta), ['.', '..']);
