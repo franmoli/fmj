@@ -1,9 +1,10 @@
 <?php
     //Cargo los datos necesarios de la base de datos
     require('administracion/db/conexion.php');
+die;
 
-    //TORNEOS
-    $cargarTorneos = " SELECT * FROM `torneos` ";
+//TORNEOS
+$cargarTorneos = " SELECT * FROM `torneos` ";
 try {
     $resultadoBD = $con->query($cargarTorneos);
     $torneos = array();
@@ -13,7 +14,6 @@ try {
 }catch (exception $e){
     echo $e->getMessage();
 }
-die;
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +47,7 @@ die;
                 </ul>
                 <!-- SLIDES -->
                 <div class="Torneos carousel-inner" <?php if(count($torneos)==0){ ?> style="
-                            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/Slides-Index/1.png);" >
+                            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/Slides-Index/1.png');" >
                     <?php
                 }
                         if (count($torneos) == 0) { ?>
