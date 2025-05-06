@@ -94,6 +94,7 @@ try {
                                         $carpeta = './resultados/' . $torneo['id'] . '/';
                                         $archivos = '';
                                         if (is_dir($carpeta)) {
+                                            echo "aaa";
                                             $archivos = array_diff(scandir($carpeta), ['.', '..']);
                                         }
                                         if(count($archivos) > 0): ?>
