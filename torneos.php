@@ -104,13 +104,11 @@ try {
 
                                             // Buscar primero archivo que empiece con "index"
                                             foreach ($archivos as $archivo) {
-                                                echo $archivo;
                                                 if (stripos($archivo, 'index') === 0) {
                                                     $archivoSeleccionado = $archivo;
                                                     break;
                                                 }
                                             }
-                                            echo $archivoSeleccionado;
 //                                        echo 'bb';
                                             // Si no encontró "index*", tomar el primero de la lista
                                             if (!$archivoSeleccionado && !empty($archivos)) {
