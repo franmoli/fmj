@@ -282,15 +282,15 @@ function leerFormulario(formulario, accion) {
       if (!validarCheckboxButton(categoriasTorneo)) return false;
       /* Reglas */
       if (accion === "crear") {
-        if (!validarArchivo(reglasTorneo)) return false;
+        // if (!validarArchivo(reglasTorneo)) return false;
       }
       /* Resultados */
       if (accion === "crear") {
-        if (!validarArchivo(resultadosTorneo)) return false;
+        // if (!validarArchivo(resultadosTorneo)) return false;
       }
       /* Foto */
       if (accion === "crear") {
-        if (!validarFoto(imagenTorneo)) return false;
+        // if (!validarFoto(imagenTorneo)) return false;
       }
       //Envio los datos hacia la base de datos
       const datos = new FormData();

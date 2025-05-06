@@ -87,7 +87,9 @@ try {
 
                                     <ul class="listabotones">
                                         <li><a href="calendario.php?torneo=<?php echo $torneo['id']; ?>">Calendario</a></li>
+                                        <?php if($torneo['reglas'] != ""): ?>
                                         <li><a href="<?php echo $torneo['reglas']; ?>" target="_blank">Ver Reglas</a></li>
+                                        <?php endif; ?>
                                         <?php if($torneo['resultados'] != ""): ?>
                                             <li><a href="<?php echo $torneo['resultados']; ?>" target="_blank">Ver Resultados</a></li>
                                         <?php endif; ?>
