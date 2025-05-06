@@ -180,6 +180,7 @@
     <?php include 'templates/scripts.php' ?>
 </body>
 <?php
+echo "aaaa";
 require('administracion/db/conexion.php');
 $cargarTorneos = " SELECT * FROM `torneos` ";
 $resultadoBD = $con->query($cargarTorneos);
@@ -188,6 +189,5 @@ while($torneosObtenidos = $resultadoBD->fetch_assoc()) {
     array_push($torneos, $torneosObtenidos);
 }
 print_r($torneos);
-echo "aaaa";
 ?>
 </html>
