@@ -181,5 +181,7 @@
 </body>
 <?php
 require('administracion/db/conexion.php');
+$cargarTorneos = " SELECT * FROM `torneos` ";
+$resultadoBD = $con->query($cargarTorneos);
 ?>
 </html>
