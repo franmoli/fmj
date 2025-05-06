@@ -181,13 +181,18 @@
 </body>
 <?php
 echo "aaaa";
-require('administracion/db/conexion.php');
-$cargarTorneos = " SELECT * FROM `torneos` ";
-$resultadoBD = $con->query($cargarTorneos);
-$torneos = array();
-while($torneosObtenidos = $resultadoBD->fetch_assoc()) {
-    array_push($torneos, $torneosObtenidos);
+try {
+    require('administracion/db/conexion.php');
+
+    $cargarTorneos = " SELECT * FROM `torneos` ";
+    $resultadoBD = $con->query($cargarTorneos);
+    $torneos = array();
+    while($torneosObtenidos = $resultadoBD->fetch_assoc()) {
+        array_push($torneos, $torneosObtenidos);
+    }
+    print_r($torneos);
+}catch (exception $e){
+    echo $e->getMessage();
 }
-print_r($torneos);
 ?>
 </html>
