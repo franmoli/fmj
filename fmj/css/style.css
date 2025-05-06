@@ -1,0 +1,920 @@
+/************* Elementos y clases globales **************/
+
+@font-face {
+    font-family: "Fun City Level2";
+    src: url(../font/FunCityLevel2Stencil.otf);
+}
+
+:root {
+    /*Colores*/
+    /*opciones
+    #0c0094
+    #605d82
+    #c30404
+    #9a0000
+    #9e0000
+    #7d001f
+    #7b0202
+    #610a0a
+    */
+    --colorBlanco: #ffffff;
+    --colorPrincipal: #af0404;
+    --colorRojo: #e51b23;
+    --colorGris: #c4c4c4;
+    --colorNegro: #000000;
+    /*Fuentes*/
+    --tradeWinds: "Trade Winds", cursive;
+    --amaip: "Rubik", Helvetica, Arial, sans-serif;
+    --anton: "Anton", cursive;
+    --raleway: "Raleway", sans-serif;
+    --smt: "Fun City Level2", cursive;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--raleway);
+}
+
+li {
+    list-style: none;
+}
+
+a.titulo {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--anton);
+}
+
+h1.titulo {
+    color: var(--colorBlanco);
+    font-family: var(--amaip);
+    margin-top: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+h1.titulo span {
+    font-family: var(--tradeWinds), cursive;
+    font-size: smaller;
+}
+
+h2.titulo-body {
+    font-size: 40px;
+    color: var(--colorPrincipal);
+    padding: 20px 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#contenido-principal {
+    margin-top: 20px;
+}
+
+.row {
+    margin: 0 !important;
+}
+
+.carousel-caption {
+    right: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+}
+
+.carousel-caption h3 {
+    padding: 20px !important;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.light-overlay {
+    background-color: rgba(255, 250, 250, 0.6);
+}
+
+
+/* Formularios - General */
+
+input,
+textarea {
+    font-family: var(--anton);
+}
+
+input.with-error+small,
+textarea.with-error+small {
+    display: none;
+}
+
+input.with-error:focus+small,
+textarea.with-error:focus+small {
+    display: block;
+    margin-bottom: 20px;
+}
+
+
+/* Formularios - Number */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+
+/* Formularios - File */
+
+input[type="file"] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+label.file {
+    color: var(--colorBlanco) !important;
+}
+
+label.file:hover {
+    border: solid 2px var(--colorPrincipal);
+    background-color: var(--colorGris);
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+
+/* Formularios - Radio */
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked+label .icono {
+    background: var(--colorPrincipal);
+    transition: all 0.3s ease-in;
+}
+
+.radio-button label .icono {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    border: 2px solid var(--colorGris);
+    border-radius: 100px;
+    width: 18px;
+    height: 18px;
+    background: var(--colorBlanco);
+}
+
+.radio-button label {
+    position: relative;
+}
+
+.radio-button label:hover {
+    cursor: pointer;
+}
+
+
+/* Formularios - Checkbox */
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked+label .icono {
+    background: var(--colorPrincipal);
+    transition: all 0.3s ease-in;
+}
+
+.checkbox-button label .icono {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    border: 2px solid var(--colorGris);
+    width: 18px;
+    height: 18px;
+    background: var(--colorBlanco);
+}
+
+.checkbox-button label {
+    position: relative;
+}
+
+.checkbox-button label:hover {
+    cursor: pointer;
+}
+
+
+/* Formularios - Text */
+
+input.text,
+input.pass,
+label.file {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: var(--colorPrincipal);
+    color: var(--colorBlanco);
+    font-size: 20px;
+    border: solid 2px var(--colorBlanco);
+    border-radius: 30px;
+}
+
+input.text-white,
+input.pass-white,
+textarea.text-white {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-color: var(--colorBlanco);
+    color: var(--colorPrincipal) !important;
+    font-size: 20px;
+    border: solid 2px var(--colorPrincipal);
+    border-radius: 30px;
+}
+
+input.submit-white {
+    background-color: var(--colorBlanco);
+    color: var(--colorPrincipal);
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 40px;
+}
+
+input.submit-white:hover {
+    background-color: var(--colorGris);
+    transition: all 0.2s ease-in;
+}
+
+@media only screen and (max-width: 992px) {
+    h1.titulo {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1.titulo {
+        font-size: 32px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 360px) {
+    h1.titulo {
+        margin-right: 5px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+    }
+}
+
+
+/************* Elementos y clases globales **************/
+
+
+/************* Header **************/
+
+.header {
+    background-color: var(--colorPrincipal);
+}
+
+.logo {
+    width: 100%;
+    max-width: 140px;
+}
+
+.header .row {
+    padding: 5px;
+}
+
+.navmobile {
+    display: none;
+}
+
+.listanav {
+    display: flex;
+    justify-content: center;
+}
+
+.itemnav {
+    padding: 0 10px;
+}
+
+.itemnav a {
+    color: var(--colorBlanco);
+    font-family: var(--raleway);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.itemnav a:hover {
+    color: var(--colorGris);
+    transition: 0.3s all ease-out;
+}
+
+.menuicono i:hover {
+    color: var(--colorGris);
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+@media only screen and (max-width: 992px) {
+    .itemnav {
+        padding: 0 10px;
+    }
+    .menu {
+        color: white;
+        font-size: 50px;
+    }
+    .navmobile {
+        text-align: center;
+        display: block;
+        padding: 10px;
+    }
+    .listanav {
+        display: none;
+    }
+    .itemnav a {
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .open {
+        display: block;
+    }
+    .open li {
+        padding: 10px 0;
+        font-size: 25px;
+    }
+    .opening {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        margin: 10px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .logo {
+        width: 80%;
+    }
+}
+
+
+/************* Header **************/
+
+
+/************* Footer **************/
+
+.container-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.footer {
+    background-color: var(--colorPrincipal);
+}
+
+.texto-footer {
+    color: var(--colorBlanco);
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center !important;
+}
+
+.panel {
+    text-align: right;
+}
+
+.panel:hover {
+    cursor: pointer;
+}
+
+.linea-footer {
+    color: var(--colorBlanco);
+    background-color: var(--colorBlanco);
+}
+
+.spam a,
+.copyright a {
+    text-decoration: none;
+    color: var(--colorBlanco);
+    font-size: 20px;
+}
+
+.copyright a {
+    font-weight: 400;
+}
+
+.spam {
+    padding: 20px;
+}
+
+.smt {
+    font-family: var(--smt);
+    color: var(--colorRojo);
+}
+
+@media only screen and (max-width: 992px) {
+    .texto-footer {
+        font-size: 17px;
+    }
+}
+
+@media only screen and (max-width: 572px) {
+    h1.titulo {
+        font-size: 21px;
+        text-align: center;
+    }
+}
+
+
+/************* Footer **************/
+
+
+/************* Index **************/
+
+
+/* Federaciones */
+
+.federaciones {
+    margin: 30px 0;
+}
+
+.federacion img {
+    width: 60%;
+}
+
+.federacion p {
+    font-family: var(--raleway);
+}
+
+.objetivo img {
+    width: 35% !important;
+}
+
+
+/* Parches */
+
+.parches {
+    margin-bottom: 40px;
+    background-color: #d9daef;
+    padding: 3rem;
+}
+
+.parches img {
+    border: 4px solid var(--colorPrincipal);
+    border-radius: 360px;
+}
+
+
+/* Galería */
+
+.galeria {
+    margin-top: 40px;
+    margin-bottom: -20px;
+}
+
+.imagen-galeria img {
+    width: 100%;
+    position: relative;
+}
+
+.imagen-galeria {
+    background-color: var(--colorNegro);
+    text-align: center;
+}
+
+.club-galeria {
+    font-family: var(--raleway);
+}
+
+.titulo-imagen {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.videos iframe {
+    width: 90%;
+}
+
+
+/* Inscripciones */
+
+.inscripciones-parrafo {
+    text-align: center;
+    font-size: 20px;
+    font-family: var(--raleway);
+}
+
+.boton-inscripcion {
+    margin-top: 50px;
+}
+
+.boton-inscripcion a {
+    color: var(--colorPrincipal);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    font-family: var(--raleway);
+    border: 4px solid var(--colorPrincipal);
+    border-radius: 360px;
+}
+
+.boton-inscripcion a:hover {
+    color: var(--colorBlanco);
+    background-color: var(--colorPrincipal);
+    transition: 0.3s all ease-in;
+}
+
+
+/* Responsive */
+
+@media only screen and (max-width: 768px) {
+    .inscripciones-parrafo {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    h3.club-galeria {
+        font-size: 25px;
+    }
+    .carousel-control-next span {
+        margin-right: 25px;
+    }
+    .carousel-control-prev .prev {
+        margin-left: 25px;
+    }
+    .videos iframe {
+        width: 80%;
+    }
+}
+
+
+/************* Index **************/
+
+
+/************* Calendario **************/
+
+.fechas-torneos {
+    margin-bottom: 70px;
+}
+
+.torneo-calendario {
+    background-color: var(--colorPrincipal);
+}
+
+.torneo-calendario h2 {
+    color: var(--colorBlanco);
+    font-family: var(--raleway);
+    font-weight: 700;
+    text-align: center;
+    padding: 5px;
+    margin: 0;
+}
+
+.card {
+    color: var(--colorPrincipal);
+    font-family: var(--raleway);
+    font-weight: 700;
+    text-align: center;
+}
+
+.info i {
+    font-size: 30px;
+}
+
+.info {
+    padding: 15px;
+}
+
+@media only screen and (max-width: 330px) {
+    .torneo-calendario h2 {
+        word-break: break-all;
+    }
+}
+
+
+/************* Calendario **************/
+
+
+/************* Torneos **************/
+
+.Torneos h3 {
+    color: var(--colorBlanco);
+    font-family: var(--tradeWinds);
+    font-weight: 700;
+    margin: 55px;
+}
+
+.Torneos h5 {
+    color: var(--colorBlanco);
+    font-family: var(--anton);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.Torneos p {
+    color: var(--colorBlanco);
+    font-family: var(--raleway);
+    font-weight: 300;
+}
+
+.listabotones {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-bottom: 2rem;
+}
+
+.listabotones li {
+    padding: 10px;
+    border: 2px solid var(--colorBlanco);
+    border-radius: 360px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.listabotones li a {
+    font-size: 20px;
+    font-family: var(--raleway);
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--colorBlanco);
+}
+
+.listabotones li:hover {
+    background-color: var(--colorGris);
+    transition: 0.3s all ease-in;
+}
+
+@media only screen and (max-width: 360px) {
+    .Torneos h3 {
+        text-align: left;
+        font-size: 25px;
+        word-break: break-all;
+    }
+    .listabotones {
+        display: block;
+    }
+    .listabotones li {
+        padding: 0;
+    }
+    .listabotones li a {
+        font-size: 15px;
+    }
+}
+
+
+/************* Torneos **************/
+
+.torneos {
+    min-height: 100vh;
+}
+
+#carousel-torneos {
+    min-height: 10vh;
+}
+
+
+/************* Inscripciones **************/
+
+#formulario-inscripcion h3 {
+    font-size: 20px;
+}
+
+#formulario-inscripcion input,
+#formulario-inscripcion textarea {
+    text-transform: uppercase;
+}
+
+#formulario-inscripcion label {
+    color: var(--colorPrincipal);
+    font-family: var(--anton);
+    font-size: 20px;
+}
+
+#formulario-inscripcion label span {
+    font-size: 15px;
+}
+
+#formulario-inscripcion input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+}
+
+#formulario-inscripcion input[type="submit"]:hover {
+    background-color: var(--colorGris);
+    color: var(--colorPrincipal);
+    border: solid 2px var(--colorPrincipal);
+    transition: all 0.3s ease-in;
+}
+
+
+/************* Inscripciones **************/
+
+
+/************* Ranking **************/
+
+
+/* Categorías */
+
+a.active {
+    background-color: var(--colorPrincipal);
+    color: var(--colorBlanco);
+}
+
+.botonCategoria {
+    border: 4px solid var(--colorPrincipal);
+    border-radius: 360px;
+    padding: 5px;
+    color: var(--colorPrincipal);
+    text-decoration: none;
+    font-size: 20px;
+    font-family: var(--anton);
+    margin: 1px auto;
+}
+
+.botonCategoria:hover {
+    background-color: var(--colorPrincipal);
+    transition: 0.3s all ease-in;
+    color: var(--colorBlanco);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+/* Tablas */
+
+#tablas-ranking {
+    margin: 0 auto !important;
+}
+
+table#ranking thead th,
+table#pesos thead th {
+    border: solid 5px var(--colorPrincipal);
+    background-color: var(--colorPrincipal);
+    color: var(--colorBlanco);
+    font-size: 26px;
+    padding: 10px;
+}
+
+table#ranking,
+table#pesos {
+    font-family: var(--anton);
+    width: 100%;
+    margin: 0 auto 20px auto;
+}
+
+table#ranking img,
+table#pesos img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+}
+
+table#ranking thead input,
+table#pesos thead input {
+    border: none;
+    border-radius: 100px;
+    background-color: var(--colorBlanco);
+    height: 25px;
+    font-family: var(--anton);
+    color: var(--colorPrincipal);
+    text-align: center;
+}
+
+table#ranking tbody td,
+table#pesos tbody td {
+    border: solid 5px var(--colorPrincipal);
+    color: var(--colorPrincipal);
+    padding: 5px;
+    cursor: pointer;
+}
+
+table#ranking tbody td:hover,
+table#pesos tbody td:hover {
+    color: var(--colorBlanco);
+    background-color: var(--colorPrincipal);
+    transition: all 0.3s ease-in;
+}
+
+table#ranking tbody td.active,
+table#pesos tbody td.active {
+    background-color: var(--colorPrincipal);
+    color: var(--colorBlanco);
+}
+
+@media only screen and (max-width: 770px) {
+    .tabla-competidores {
+        overflow: scroll;
+    }
+}
+
+
+/************* Ranking **************/
+
+
+/************* Patrocinadores **************/
+
+.seccion-patrocinadores {
+    margin-bottom: 4rem;
+}
+
+.seccion-patrocinadores h2 {
+    margin-bottom: 0;
+}
+
+.seccion-patrocinadores h4 {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.patrocinadores {
+    margin-bottom: 4rem;
+    justify-content: space-evenly;
+}
+
+.patrocinadores div {
+    margin-bottom: 2rem;
+}
+
+.contenedor-patrocinador {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-patrocinador {
+    height: 100%;
+    max-width: 100% !important;
+    object-fit: contain !important;
+}
+
+.post__thumb img,
+.entry-thumb img {
+    display: block;
+    object-fit: contain !important;
+    height: 100%;
+    max-width: 100% !important;
+}
+
+
+/************* Patrocinadores **************/
+
+
+/************* Objetivos **************/
+
+.objetivos {
+    margin-bottom: 4rem;
+}
+
+.objetivos li {
+    list-style: inherit;
+}
+
+.objetivos h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.objetivos span {
+    font-weight: bold;
+}
+
+
+/************* Objetivos **************/
