@@ -91,33 +91,29 @@ try {
                                         <li><a href="<?php echo $torneo['reglas']; ?>" target="_blank">Ver Reglas</a></li>
                                         <?php endif; ?>
                                         <?php
-                                        try {
-                                            $carpeta = './resultados/' . $torneo['id'] . '/';
-                                            $archivos = [];
-                                            $elementos = array_diff(scandir($carpeta), ['.', '..']);
-                                            $archivos = array_filter($elementos, function ($item) use ($carpeta) {
-                                                return is_file($carpeta . DIRECTORY_SEPARATOR . $item);
-                                            });
+                                        echo "qq";
+                                        $carpeta = './resultados/' . $torneo['id'] . '/';
+                                        $archivos = [];
+                                        $elementos = array_diff(scandir($carpeta), ['.', '..']);
+                                        $archivos = array_filter($elementos, function ($item) use ($carpeta) {
+                                            return is_file($carpeta . DIRECTORY_SEPARATOR . $item);
+                                        });
+                                        echo 'aa';
+                                        $archivoSeleccionado = null;
 
-                                            $archivoSeleccionado = null;
-
-                                            // Buscar primero archivo que empiece con "index"
-                                            foreach ($archivos as $archivo) {
-                                                if (stripos($archivo, 'index') === 0) {
-                                                    $archivoSeleccionado = $archivo;
-                                                    break;
-                                                }
+                                        // Buscar primero archivo que empiece con "index"
+                                        foreach ($archivos as $archivo) {
+                                            if (stripos($archivo, 'index') === 0) {
+                                                $archivoSeleccionado = $archivo;
+                                                break;
                                             }
-
-                                            // Si no encontró "index*", tomar el primero de la lista
-                                            if (!$archivoSeleccionado && !empty($archivos)) {
-                                                $archivoSeleccionado = reset($archivos);
-                                            }
-                                        }catch (Exception $e){
-                                            echo $e->getMessage();
                                         }
-
-
+                                        echo 'bb';
+                                        // Si no encontró "index*", tomar el primero de la lista
+                                        if (!$archivoSeleccionado && !empty($archivos)) {
+                                            $archivoSeleccionado = reset($archivos);
+                                        }
+                                        echo 'cc';
                                         if ($archivoSeleccionado) : ?>
                                             <li><a href="<?php echo './resultados/' . $torneo['id'] . '/' . $archivoSeleccionado ?>" target="_blank">Ver Resultados</a></li>
                                         <?php endif; ?>
