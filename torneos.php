@@ -109,6 +109,7 @@ try {
                                                     break;
                                                 }
                                             }
+                                            echo $archivoSeleccionado;
 //                                        echo 'bb';
                                             // Si no encontró "index*", tomar el primero de la lista
                                             if (!$archivoSeleccionado && !empty($archivos)) {
