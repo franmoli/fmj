@@ -180,6 +180,6 @@
     <?php include 'templates/scripts.php' ?>
 </body>
 <?php
-echo scandir('/');
+ print_r(scandir('/'));
 ?>
 </html>
