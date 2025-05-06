@@ -1,5 +1,7 @@
 <?php
     //Cargo los datos necesarios de la base de datos
+try {
+
     require('administracion/db/conexion.php');
 
     //TORNEOS
@@ -10,6 +12,9 @@
     while($torneosObtenidos = $resultadoBD->fetch_assoc()) {
         $torneos[] = $torneosObtenidos;
     }
+}catch (Exception $e){
+    echo $e->getMessage();
+}
 ?>
 
 <!DOCTYPE html>
