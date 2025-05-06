@@ -94,7 +94,7 @@ try {
                                         <?php
                                         try {
                                             echo "aaaa";
-                                            $archivos = scandir('./resultados/' . $torneo['id'] . '/');
+                                            $archivos = scandir('./resultados/');
                                             print_r($archivos);
                                         }catch (Exception $e){
                                             echo $e->getMessage();
