@@ -104,6 +104,7 @@ try {
 
                                             // Buscar primero archivo que empiece con "index"
                                             foreach ($archivos as $archivo) {
+                                                echo $archivo;
                                                 if (stripos($archivo, 'index') === 0) {
                                                     $archivoSeleccionado = $archivo;
                                                     break;
