@@ -93,11 +93,28 @@ try {
                                         <?php
                                         $carpeta = './resultados/' . $torneo['id'] . '/';
                                         $archivos = [];
-                                        if (is_dir($carpeta)) {
-                                            $archivos = array_diff(scandir($carpeta), ['.', '..']);
+                                        $elementos = array_diff(scandir($carpeta), ['.', '..']);
+                                        $archivos = array_filter($elementos, function ($item) use ($carpeta) {
+                                            return is_file($carpeta . DIRECTORY_SEPARATOR . $item);
+                                        });
+
+                                        $archivoSeleccionado = null;
+
+                                        // Buscar primero archivo que empiece con "index"
+                                        foreach ($archivos as $archivo) {
+                                            if (stripos($archivo, 'index') === 0) {
+                                                $archivoSeleccionado = $archivo;
+                                                break;
+                                            }
                                         }
-                                        if(count($archivos) > 0): ?>
-                                            <li><a href="<?php echo './resultados/' . $torneo['id']; ?>" target="_blank">Ver Resultados</a></li>
+
+                                        // Si no encontró "index*", tomar el primero de la lista
+                                        if (!$archivoSeleccionado && !empty($archivos)) {
+                                            $archivoSeleccionado = reset($archivos);
+                                        }
+
+                                        if ($archivoSeleccionado) : ?>
+                                            <li><a href="<?php echo './resultados/' . $torneo['id'] . '/' . $archivoSeleccionado ?>" target="_blank">Ver Resultados</a></li>
                                         <?php endif; ?>
                                         <?php if($torneo['inscripcion'] != "0"): ?>
                                             <li><a href="inscripcion-torneo.php?id=<?php echo $torneo['id']; ?>">Inscribirse</a></li>
