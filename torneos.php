@@ -94,7 +94,7 @@ try {
                                         <?php
                                         try {
                                             echo "aaaa";
-                                            $archivos = array_diff(scandir('./resultados/' . $torneo['id'] . '/'), ['.', '..']);
+                                            $archivos = scandir('./resultados/' . $torneo['id'] . '/');
                                             print_r($archivos);
                                         }catch (Exception $e){
                                             echo $e->getMessage();
