@@ -90,18 +90,15 @@ try {
                                         <?php if($torneo['reglas'] != ""): ?>
                                         <li><a href="<?php echo $torneo['reglas']; ?>" target="_blank">Ver Reglas</a></li>
                                         <?php endif; ?>
-
                                         <?php
-                                        try {
-                                            $archivos = scandir('./resultados/');
-                                            print_r($archivos);
-                                        }catch (Exception $e){
-                                            echo $e->getMessage();
+                                        $carpeta = './resultados/' . $torneo['id'] . '/';
+                                        $archivos = '';
+                                        if (is_dir($carpeta)) {
+                                            $archivos = array_diff(scandir($carpeta), ['.', '..']);
                                         }
                                         if(count($archivos) > 0): ?>
                                             <li><a href="<?php echo './resultados/' . $torneo['id']; ?>" target="_blank">Ver Resultados</a></li>
                                         <?php endif; ?>
-
                                         <?php if($torneo['inscripcion'] != "0"): ?>
                                             <li><a href="inscripcion-torneo.php?id=<?php echo $torneo['id']; ?>">Inscribirse</a></li>
                                         <?php endif; ?>
