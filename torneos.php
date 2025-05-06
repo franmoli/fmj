@@ -5,7 +5,7 @@ try {
     require('administracion/db/conexion.php');
 
     //TORNEOS
-    $cargarTorneos = " SELECT * FROM `torneos`  ORDER BY `torneos`.`id` DESC";
+    $cargarTorneos = " SELECT * FROM `torneos` ORDER BY `torneos`.`id` DESC";
     $resultadoBD = $con->query($cargarTorneos);
 
     $torneos = array();
