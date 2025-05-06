@@ -304,7 +304,7 @@ function leerFormulario(formulario, accion) {
       datos.append("resultados", resultadosTorneo.prop("files")[0]);
       datos.append("imagen", imagenTorneo.prop("files")[0]);
       datos.append("accion", accion);
-      datos.append("inscripcion", inscripcionHabilitada);
+      datos.append("inscripcion", inscripcionHabilitada ? '1' : '0');
       actualizarBD("torneo", datos);
     }
   } else if (formulario == "profesor") {
