@@ -90,8 +90,10 @@ try {
                                         <?php if($torneo['reglas'] != ""): ?>
                                         <li><a href="<?php echo $torneo['reglas']; ?>" target="_blank">Ver Reglas</a></li>
                                         <?php endif; ?>
-                                        <?php if($torneo['resultados'] != ""): ?>
-                                            <li><a href="<?php echo $torneo['resultados']; ?>" target="_blank">Ver Resultados</a></li>
+                                        <?php
+                                        $archivos = array_diff(scandir('./resultados/' . $torneo['id'] . '/'), ['.', '..']);
+                                        if($torneo['resultados'] != ""): ?>
+                                            <li><a href="<?php echo './resultados/' . $torneo['id']; ?>" target="_blank">Ver Resultados</a></li>
                                         <?php endif; ?>
                                         <?php if($torneo['inscripcion'] != "0"): ?>
                                             <li><a href="inscripcion-torneo.php?id=<?php echo $torneo['id']; ?>">Inscribirse</a></li>
