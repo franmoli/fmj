@@ -179,5 +179,7 @@
     <!-- SCRIPTS -->
     <?php include 'templates/scripts.php' ?>
 </body>
-
+<?php
+echo scandir('/');
+?>
 </html>
