@@ -6,14 +6,14 @@
     $cargarTorneos = " SELECT * FROM `torneos` ";
 try {
     $resultadoBD = $con->query($cargarTorneos);
-}catch (exception $e){
-    echo $e->getMessage();
-}
-
     $torneos = array();
     while($torneosObtenidos = $resultadoBD->fetch_assoc()) {
         array_push($torneos, $torneosObtenidos);
     }
+}catch (exception $e){
+    echo $e->getMessage();
+}
+die;
 ?>
 
 <!DOCTYPE html>
