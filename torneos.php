@@ -93,7 +93,6 @@ try {
 
                                         <?php
                                         try {
-                                            echo "aaaa";
                                             $archivos = scandir('./resultados/');
                                             print_r($archivos);
                                         }catch (Exception $e){
