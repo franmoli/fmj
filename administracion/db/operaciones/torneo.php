@@ -46,29 +46,29 @@ if ($accion == "crear") {
                 throw new Exception("No se pudo subir el archivo");
             }
         }
-        if ($_FILES['resultados']['type'] == 'application/pdf' || $_FILES['resultados']['type'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || $_FILES['resultados']['type'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
-            //Obtengo el tipo de archivo
-            if ($_FILES['resultados']['type'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-                $extensionArchivo = "docx";
-            } else {
-                if ($_FILES['resultados']['type'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
-                    $extensionArchivo = "xlsx";
-                } else {
-                    $separadorTipo = strpos($_FILES['resultados']['type'], '/');
-                    $extensionArchivo = substr($_FILES['resultados']['type'], $separadorTipo + 1);
-                }
-            }
-            //Configuro el directorio y la muevo
-            $directorio = '../../../resultados/';
-            if (move_uploaded_file(
-                $_FILES['resultados']['tmp_name'],
-                $directorio . $nombre . '.' . $extensionArchivo
-            )) {
-                $urlResultados = "resultados/" . $nombre . '.' . $extensionArchivo;
-            } else {
-                throw new Exception("No se pudo subir el archivo");
-            }
-        }
+//        if ($_FILES['resultados']['type'] == 'application/pdf' || $_FILES['resultados']['type'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || $_FILES['resultados']['type'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+//            //Obtengo el tipo de archivo
+//            if ($_FILES['resultados']['type'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+//                $extensionArchivo = "docx";
+//            } else {
+//                if ($_FILES['resultados']['type'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+//                    $extensionArchivo = "xlsx";
+//                } else {
+//                    $separadorTipo = strpos($_FILES['resultados']['type'], '/');
+//                    $extensionArchivo = substr($_FILES['resultados']['type'], $separadorTipo + 1);
+//                }
+//            }
+//            //Configuro el directorio y la muevo
+//            $directorio = '../../../resultados/';
+//            if (move_uploaded_file(
+//                $_FILES['resultados']['tmp_name'],
+//                $directorio . $nombre . '.' . $extensionArchivo
+//            )) {
+//                $urlResultados = "resultados/" . $nombre . '.' . $extensionArchivo;
+//            } else {
+//                throw new Exception("No se pudo subir el archivo");
+//            }
+//        }
         $sql = 'INSERT INTO torneos (nombre, categorias, reglas, imagen, resultados, inscripcion) VALUES (?, ?, ?, ?, ?, ?)';
         $stmt = $con->prepare($sql);
         $stmt->bind_param('sssssi', $nombre, $categorias, $urlReglas, $urlImagen, $urlResultados, $inscripcion);
@@ -153,7 +153,7 @@ if ($accion == "crear") {
 
             if (isset($extensionesPermitidas[$mime])) {
                 $extension = $extensionesPermitidas[$mime];
-                $rutaDestino = '../../../resultados/' . $nombre . '.' . $extension;
+                $rutaDestino = '../../../resultados/' . $id . '/' . $nombre . '.' . $extension;
                 if (move_uploaded_file($_FILES['resultados']['tmp_name'], $rutaDestino)) {
                     $urlReglas = 'resultados/' . $nombre . '.' . $extension;
                     $campos[] = 'resultados = ?';

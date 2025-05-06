@@ -101,15 +101,15 @@ include 'templates/header.php'; ?>
                         <div>SUBIR ARCHIVO</div>
                     </label>
                 </div>
-                <h3 class="text-left">RESULTADOS</h3>
                 <!-- Resultados -->
-                <div class="resultados">
-                    <div class="resultados-torneo"><input id="resultados-torneo" class="text text-center" type="file"
-                                                          placeholder="REUSLTADOS DEL TORNEO"></div>
-                    <label for="resultados-torneo" class="file text-center col-md-12">
-                        <div>SUBIR ARCHIVO</div>
-                    </label>
-                </div>
+<!--                <h3 class="text-left">RESULTADOS</h3>-->
+<!--                <div class="resultados">-->
+<!--                    <div class="resultados-torneo"><input id="resultados-torneo" class="text text-center" type="file"-->
+<!--                                                          placeholder="REUSLTADOS DEL TORNEO"></div>-->
+<!--                    <label for="resultados-torneo" class="file text-center col-md-12">-->
+<!--                        <div>SUBIR ARCHIVO</div>-->
+<!--                    </label>-->
+<!--                </div>-->
                 <!-- IMAGEN -->
                 <h3 class="text-left">IMAGEN</h3>
                 <div class="foto">

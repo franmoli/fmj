@@ -93,11 +93,9 @@ try {
                                         <?php
                                         $carpeta = './resultados/' . $torneo['id'] . '/';
                                         $archivos = [];
-                                        if (is_dir($carpeta)) {echo "dir";
+                                        if (is_dir($carpeta)) {
                                             $archivos = array_diff(scandir($carpeta), ['.', '..']);
                                         }
-                                        print_r($archivos);
-                                        echo count($archivos);
                                         if(count($archivos) > 0): ?>
                                             <li><a href="<?php echo './resultados/' . $torneo['id']; ?>" target="_blank">Ver Resultados</a></li>
                                         <?php endif; ?>
