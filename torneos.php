@@ -92,7 +92,7 @@ try {
                                         <?php endif; ?>
                                         <?php
                                         $archivos = array_diff(scandir('./resultados/' . $torneo['id'] . '/'), ['.', '..']);
-                                        if($torneo['resultados'] != ""): ?>
+                                        if(count($archivos) > 0): ?>
                                             <li><a href="<?php echo './resultados/' . $torneo['id']; ?>" target="_blank">Ver Resultados</a></li>
                                         <?php endif; ?>
                                         <?php if($torneo['inscripcion'] != "0"): ?>
