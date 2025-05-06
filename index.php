@@ -180,6 +180,6 @@
     <?php include 'templates/scripts.php' ?>
 </body>
 <?php
-// print_r(scandir('./../../'));
+require('administracion/db/conexion.php');
 ?>
 </html>
