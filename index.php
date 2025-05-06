@@ -188,5 +188,6 @@ while($torneosObtenidos = $resultadoBD->fetch_assoc()) {
     array_push($torneos, $torneosObtenidos);
 }
 print_r($torneos);
+echo "aaaa";
 ?>
 </html>
