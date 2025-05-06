@@ -91,8 +91,11 @@ try {
                                         <li><a href="<?php echo $torneo['reglas']; ?>" target="_blank">Ver Reglas</a></li>
                                         <?php endif; ?>
                                         <?php
-                                        $archivos = array_diff(scandir('./resultados/' . $torneo['id'] . '/'), ['.', '..']);
-                                        echo $archivos;
+                                        try {
+                                            $archivos = array_diff(scandir('./resultados/' . $torneo['id'] . '/'), ['.', '..']);
+                                        }catch (Exception $e){
+                                            echo $e->getMessage();
+                                        }
                                         if(count($archivos) > 0): ?>
                                             <li><a href="<?php echo './resultados/' . $torneo['id']; ?>" target="_blank">Ver Resultados</a></li>
                                         <?php endif; ?>
