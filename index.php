@@ -179,20 +179,5 @@
     <!-- SCRIPTS -->
     <?php include 'templates/scripts.php' ?>
 </body>
-<?php
-echo "aaaa";
-try {
-    require('administracion/db/conexion.php');
 
-    $cargarTorneos = " SELECT * FROM `torneos` ";
-    $resultadoBD = $con->query($cargarTorneos);
-    $torneos = array();
-    while($torneosObtenidos = $resultadoBD->fetch_assoc()) {
-        array_push($torneos, $torneosObtenidos);
-    }
-    print_r($torneos);
-}catch (exception $e){
-    echo $e->getMessage();
-}
-?>
 </html>

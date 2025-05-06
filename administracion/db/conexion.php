@@ -1,5 +1,5 @@
 <?php
-$con = new mysqli('localhost', 'u624517937_fmj_admin', 'Bw$l9+h@bQf6', 'u624517937_fmj_rank');
+$con = new mysqli('localhost:3036', 'u132951792_fmj_admin', 'Bw$l9+h@bQf6', 'u132951792_fmj_rank');
 
 if ($con->connect_error) {
     echo $con->connect_error;
